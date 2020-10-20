@@ -1,0 +1,42 @@
+# Triggered modifiers are here.
+# these are checked for each countries once/month and then applied.
+#
+# Effects are fully scriptable here.
+
+
+#############
+# Caliphate #
+#############
+
+cal_not_defender = {
+	potential = {
+		religion_group = muslim
+		is_caliph = yes		
+	}
+
+	trigger = {
+		is_caliph = yes
+		is_defender_of_faith = no
+	}
+
+	legitimacy = -1
+	prestige = -1
+	diplomatic_reputation = -5
+	global_unrest = -2
+	land_morale = -0.2
+}
+
+cal_stronger_muslim = {
+	potential = {
+		religion_group = muslim
+		is_caliph = yes
+	}
+	trigger = {
+		is_caliph = yes
+		every_country = {
+			trigger = { religion = ROOT }
+			NOT = { army_size = ROOT }
+			NOT = { total_development = ROOT }
+		}
+	}
+}

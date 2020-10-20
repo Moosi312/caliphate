@@ -1,0 +1,54 @@
+###############
+#  Caliphate  #
+###############
+
+cal_caliphate_sunni = {
+	diplomatic_reputation = 3
+	global_unrest = -1
+	global_missionary_strength = 0.02
+	missionaries = 1
+	tolerance_own = 2
+	tolerance_heretic = 1
+	stability_cost_modifier = -0.2
+	brahmins_hindu_loyalty_modifier = 0.05
+	church_loyalty_modifier = 0.05
+}
+
+cal_caliphate_shia = {
+	diplomatic_reputation = 3
+	global_unrest = -1
+	global_missionary_strength = 0.02
+	missionaries = 1
+	tolerance_own = 2
+	tolerance_heretic = 1
+	stability_cost_modifier = -0.2
+	brahmins_hindu_loyalty_modifier = 0.05
+	church_loyalty_modifier = 0.05
+}
+
+cal_caliphate_ibadi = {
+	diplomatic_reputation = 3
+	global_unrest = -1
+	global_missionary_strength = 0.02
+	missionaries = 1
+	tolerance_own = 2
+	tolerance_heretic = 1
+	stability_cost_modifier = -0.2
+	brahmins_hindu_loyalty_modifier = 0.05
+	church_loyalty_modifier = 0.05
+}
+
+cal_caliphate_destroyed = {
+	diplomatic_reputation = 5
+	global_missionary_strength = 0.02
+	if = {
+		limit = { raligion = muslim }
+		global_heretic_missionary_strength = 0.03
+	}
+	tolerance_own = 2
+	tolerance_heathen = -1
+	tolerance_heretic = -1
+	stability_cost_modifier = -0.1
+	church_loyalty_modifier = 0.05
+	brahmins_hindu_loyalty_modifier = 0.05
+}

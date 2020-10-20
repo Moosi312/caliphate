@@ -1,0 +1,11 @@
+﻿l_english:
+  cal_legitimize_minor: "Legitimze ruler"
+  cal_legitimize_minor_title: "Legitimze ruler"
+  cal_legitimize_minor_desc: "By using our power as caliph, we can legitimze another ruler to strenghten our relation."
+  cal_legitimize_minor_tooltip: "TOOLTIP TODO"
+  cal_legitimize_minor_alert_tooltip: "ALERT TOOLTIP TODO"
+  cal_demand_religious_conversion_heretic: "Demand religous conversion"
+  cal_demand_religious_conversion_heretic_title: "Religous Unity"
+  cal_demand_religious_conversion_heretic_desc: "Force a heretic nation to convert to [Root.Religion.GetName] Islam"
+  cal_demand_religious_conversion_heretic_tooltip: "TOOLTIP TODO"
+  cal_demand_religious_conversion_heretic_alert_tooltip: "ALERT TOOLTIP TODO"

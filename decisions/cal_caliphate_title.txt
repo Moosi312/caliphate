@@ -1,0 +1,161 @@
+country_decisions = {
+
+	cal_take_caliphate_sunni = {
+		major = yes
+		potential = {
+			religion = sunni
+			NOT = { has_country_modifier = cal_caliphate_sunni }
+			all_country = {
+				NOT = {
+					has_country_modifier = cal_caliphate_sunni
+				}
+			}
+		}
+		allow = {
+			government_rank = 2
+
+			owns = 410
+			owns = 385
+			owns = 382
+			
+			is_defender_of_faith = yes
+
+			treasury = 1000
+			prestige = 100
+			legitimacy = 100
+
+			religious_unity = 1
+
+			num_of_owned_provinces_with = {
+				value = 50
+				religion = sunni
+				is_overseas = no
+			}
+		}
+	 	effect = {
+			add_country_modifier = { 
+			    name = cal_caliphate_sunni
+			    duration = -1
+			}
+			add_legitimacy = 50
+			add_prestige = 50
+
+			add_treasury = -1000
+
+			custom_effect_tooltip = cal_caliphate_wars_tt
+
+		}
+		hidden_effect = {
+			cal_add_opinion_modifiers_caliphate = yes
+			all_countries = {
+				country_event = { cal_flavor.1 }
+			}
+		}
+	}
+
+	cal_take_caliphate_shia = {
+		major = yes
+		potential = {
+			religion = shia
+			NOT = { has_country_modifier = cal_caliphate_shia }
+			all_country = {
+				NOT = {
+					has_country_modifier = cal_caliphate_shia
+				}
+			}
+		}
+		allow = {
+			government_rank = 2
+
+			owns = 410
+			owns = 385
+			owns = 382
+			
+			is_defender_of_faith = yes
+
+			treasury = 1000
+			prestige = 100
+			legitimacy = 100
+
+			religious_unity = 1
+
+			num_of_owned_provinces_with = {
+				value = 50
+				religion = sunni
+				is_overseas = no
+			}
+		}
+	 	effect = {
+			add_country_modifier = { 
+			    name = cal_caliphate_shia
+			    duration = -1
+			}
+			add_legitimacy = 50
+			add_prestige = 50
+
+			add_treasury = -1000
+
+			custom_effect_tooltip = cal_caliphate_wars_tt
+
+		}
+		hidden_effect = {
+			cal_add_opinion_modifiers_caliphate = yes
+			all_countries = {
+				country_event = { cal_flavor.1 }
+			}
+		}
+	}
+
+	cal_take_caliphate_ibadi = {
+		major = yes
+		potential = {
+			religion = sunni
+			NOT = { has_country_modifier = cal_caliphate_ibadi }
+			all_country = {
+				NOT = {
+					has_country_modifier = cal_caliphate_ibadi
+				}
+			}
+		}
+		allow = {
+			government_rank = 2
+
+			owns = 410
+			owns = 385
+			owns = 382
+			
+			is_defender_of_faith = yes
+
+			treasury = 1000
+			prestige = 100
+			legitimacy = 100
+
+			religious_unity = 1
+
+			num_of_owned_provinces_with = {
+				value = 50
+				religion = sunni
+				is_overseas = no
+			}
+		}
+	 	effect = {
+			add_country_modifier = { 
+			    name = cal_caliphate_ibadi
+			    duration = -1
+			}
+			add_legitimacy = 50
+			add_prestige = 50
+
+			add_treasury = -1000
+
+			custom_effect_tooltip = cal_caliphate_wars_tt
+
+		}
+		hídden_effect = {
+			cal_add_opinion_modifiers_caliphate = yes
+			all_countries = {
+				country_event = { cal_flavor.1 }
+			}
+		}
+	}
+}

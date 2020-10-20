@@ -1,0 +1,13 @@
+﻿l_english:
+ cal_flavor.1.t: "Caliphate has been proclaimed"
+ cal_flavor.1.d: "[From.GetName] has proclaimed himself as the Caliph!\nThe [From.GetAdjective]s have conquered large parts of the Muslim world and have now proclaimed themselves the leader of all [From.Religion.GetName] Muslims.\n\nThis of course also puts a target an their back and give us just cause to attack them."
+ cal_flavor.1.a: "Foolish posturing!"
+ cal_flavor.2.t: "Caliphate has been usurped"
+ cal_flavor.2.d: "[From.GetName] has proclaimed himself as the Caliph!\nThe [From.GetAdjective]s have usurped the title of caliph from [From.From.GetName].\nAfter years long gruelling war, [From.From.GetName] has been humiliated by taking the tile of the Caliph away for him. This might be the beginning of the end for them. Their armies have been demoralized, their vassals are disloyal, their people unruly. If there ever wa a great opportunity to strike it is now.\nOr maybe we should strike the new Caliph and show him, just how weak he still is compared to us?"
+ cal_flavor.2.a: "It's a bloody game of religion and politics."
+ cal_flavor.3.t: "Caliph dethroned!"
+ cal_flavor.3.d: "The [From.From.Religion.GetName] Caliphate has been destroyed. The [From.GetAdjective] armies have defeated the [From.From.GetAdjective]s after years of gruelling war and decided to humiliate them and their entire faith by dismantling the Caliphate.\nThis might be the beginning of the end for them. Their armies have been demoralized, their vassals are disloyal, their people unruly. If there ever wa a great opportunity to strike it is now."
+ cal_flavor.3.a: "It is a fragile system after all."
+ cal_flavor.3.t: "Caliph dethroned!"
+ cal_flavor.3.d: "The [From.Religion.GetName] Caliphate has been destroyed. Their own people have risen up and dethroned their Caliph. ...TODO"
+ cal_flavor.3.a: "It is a fragile system after all."

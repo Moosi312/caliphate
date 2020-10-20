@@ -1,0 +1,44 @@
+#Caliphate scripted effects:
+
+cal_add_opinion_modifiers_caliphate = {
+	all_countries = {
+		limit = {
+			religion_group = muslim
+			NOT = { is_rival = ROOT }
+			NOT = { vassal_of = ROOT }
+		}
+		reverse_add_opinion = {
+		    who = ROOT
+		    modifier = cal_calipahte_muslim_mod
+		}
+	}
+	all_countries = {
+		limit = {
+			is_rival = ROOT
+		}
+		reverse_add_opinion = {
+		    who = ROOT
+		    modifier = cal_calipahte_rival_mod
+		}
+	}
+	all_countries = {
+		limit = {
+			vassal_of = ROOT
+		}
+		reverse_add_opinion = {
+		    who = ROOT
+		    modifier = cal_calipahte_vassal_mod
+		}
+	}
+	all_countries = {
+		limit = {
+			NOT = { religion_group = muslim }
+			NOT = { is_rival = ROOT }
+			NOT = { vassal_of = ROOT }
+		}
+		reverse_add_opinion = {
+		    who = ROOT
+		    modifier = cal_calipahte_heretic_mod
+		}
+	}
+}

@@ -1,0 +1,86 @@
+# INSTRUCTIONS:
+# -------------
+# is_triggered_only - Triggered from within the code or by event effects. DO NOT REMOVE THE STOCK ONES.
+# months - The number of months this CB will be valid. Only works for triggered CBs.
+# prerequisites - A condition that automatically activates a CB. Does not work for triggered CBs.
+# no_opinion_hit - If yes you get no negative opinion from this
+#
+# ROOT = attacker
+# FROM = target
+#
+# NOTE: The order in which the peace options are listed is the order in which the AI will normally prioritize them in peace treaties
+#
+# TRIGGERED - Triggered from within the code or by event effects
+# --------------------------------------------------------------
+
+
+# Take caliphate
+cb_take_caliphate_sunni = {
+	valid_for_subject = no
+
+	prerequisites = {
+		is_subject = no
+		FROM = { has_country_modifier = cal_caliphate_sunni }
+		religion = sunni
+		NOT = { truce_with = FROM }
+		is_revolutionary = no
+	}
+
+	war_goal = take_capital_caliphate_sunni
+}
+
+cb_take_caliphate_shia = {
+	valid_for_subject = no
+
+	prerequisites = {
+		is_subject = no
+		FROM = { has_country_modifier = cal_caliphate_shia }
+		religion = sunni
+		NOT = { truce_with = FROM }
+		is_revolutionary = no
+	}
+
+	war_goal = take_capital_caliphate_shia
+}
+
+cb_take_caliphate_ibadi = {
+	valid_for_subject = no
+
+	prerequisites = {
+		is_subject = no
+		FROM = { has_country_modifier = cal_caliphate_ibadi }
+		religion = sunni
+		NOT = { truce_with = FROM }
+		is_revolutionary = no
+	}
+
+	war_goal = take_capital_caliphate_ibadi
+}
+
+#Attack Caliph
+cb_remove_caliph_heretic = {
+	valid_for_subject = no
+
+	prerequisites = {
+		is_subject = no
+		FROM = { is_caliph = yes }
+		religion_group = muslim
+		NOT = { religion = FROM }
+		NOT = { truce_with = FROM }
+	}
+
+	war_goal = take_capital_attack_caliphate_heretic
+}
+
+cb_remove_caliph_heathen = {
+	valid_for_subject = no
+
+	prerequisites = {
+		is_subject = no
+		FROM = { is_caliph = yes }
+		NOT = { religion_group = muslim }
+		NOT = { truce_with = FROM }
+	}
+
+	war_goal = take_capital_attack_caliphate_heathen
+}

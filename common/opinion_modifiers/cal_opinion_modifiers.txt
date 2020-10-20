@@ -1,0 +1,30 @@
+
+cal_calipahte_rival_mod = {
+	opinion = -100
+	yearly_decay = 1
+}
+
+cal_calipahte_vassal_mod = {
+	opinion = 100
+	yearly_decay = 1
+}
+
+cal_calipahte_muslim_mod = {
+	opinion = 50
+	yearly_decay = 1
+}
+
+cal_calipahte_heretic_mod = {
+	opinion = -50
+	yearly_decay = 1
+}
+
+cal_caliph_legitimized = {
+	opinion = 50
+	yearly_decay = 1
+}
+
+cal_forced_religion = {
+	opinion = -50
+	yearly_decay = 1
+}
