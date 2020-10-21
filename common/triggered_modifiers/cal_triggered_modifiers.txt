@@ -11,7 +11,7 @@
 cal_not_defender = {
 	potential = {
 		religion_group = muslim
-		is_caliph = yes		
+		is_caliph = yes
 	}
 
 	trigger = {
@@ -22,8 +22,10 @@ cal_not_defender = {
 	legitimacy = -1
 	prestige = -1
 	diplomatic_reputation = -5
-	global_unrest = -2
+	global_unrest = 2
 	land_morale = -0.2
+
+	picture = "tolerance_heretic"
 }
 
 cal_stronger_muslim = {
@@ -33,10 +35,16 @@ cal_stronger_muslim = {
 	}
 	trigger = {
 		is_caliph = yes
-		every_country = {
-			trigger = { religion = ROOT }
-			NOT = { army_size = ROOT }
-			NOT = { total_development = ROOT }
+		any_country = {
+			religion = ROOT
+			army_size = ROOT
+			total_development = ROOT
 		}
 	}
+	legitimacy = -1
+	prestige = -1
+	diplomatic_reputation = -5
+	reduced_liberty_desire = -25
+
+	picture = "tolerance_heretic"
 }

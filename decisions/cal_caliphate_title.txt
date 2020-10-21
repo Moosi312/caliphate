@@ -12,7 +12,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			government_rank = 2
+			government_rank = 3
 
 			owns = 410
 			owns = 385
@@ -27,7 +27,7 @@ country_decisions = {
 			religious_unity = 1
 
 			num_of_owned_provinces_with = {
-				value = 50
+				value = 100
 				religion = sunni
 				is_overseas = no
 			}
@@ -42,12 +42,10 @@ country_decisions = {
 
 			add_treasury = -1000
 
-			custom_effect_tooltip = cal_caliphate_wars_tt
+			custom_tooltip = cal_caliphate_wars_tt
 
-		}
-		hidden_effect = {
 			cal_add_opinion_modifiers_caliphate = yes
-			all_countries = {
+			every_country = {
 				country_event = { cal_flavor.1 }
 			}
 		}
@@ -65,7 +63,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			government_rank = 2
+			government_rank = 3
 
 			owns = 410
 			owns = 385
@@ -80,7 +78,7 @@ country_decisions = {
 			religious_unity = 1
 
 			num_of_owned_provinces_with = {
-				value = 50
+				value = 100
 				religion = sunni
 				is_overseas = no
 			}
@@ -95,12 +93,10 @@ country_decisions = {
 
 			add_treasury = -1000
 
-			custom_effect_tooltip = cal_caliphate_wars_tt
+			custom_tooltip = cal_caliphate_wars_tt
 
-		}
-		hidden_effect = {
 			cal_add_opinion_modifiers_caliphate = yes
-			all_countries = {
+			every_country = {
 				country_event = { cal_flavor.1 }
 			}
 		}
@@ -109,7 +105,7 @@ country_decisions = {
 	cal_take_caliphate_ibadi = {
 		major = yes
 		potential = {
-			religion = sunni
+			religion = ibadi
 			NOT = { has_country_modifier = cal_caliphate_ibadi }
 			all_country = {
 				NOT = {
@@ -118,7 +114,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			government_rank = 2
+			government_rank = 3
 
 			owns = 410
 			owns = 385
@@ -133,7 +129,7 @@ country_decisions = {
 			religious_unity = 1
 
 			num_of_owned_provinces_with = {
-				value = 50
+				value = 100
 				religion = sunni
 				is_overseas = no
 			}
@@ -148,12 +144,10 @@ country_decisions = {
 
 			add_treasury = -1000
 
-			custom_effect_tooltip = cal_caliphate_wars_tt
+			custom_tooltip = cal_caliphate_wars_tt
 
-		}
-		hídden_effect = {
 			cal_add_opinion_modifiers_caliphate = yes
-			all_countries = {
+			every_country = {
 				country_event = { cal_flavor.1 }
 			}
 		}

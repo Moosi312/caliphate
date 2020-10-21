@@ -1,7 +1,7 @@
 #Caliphate scripted effects:
 
 cal_add_opinion_modifiers_caliphate = {
-	all_countries = {
+	every_country = {
 		limit = {
 			religion_group = muslim
 			NOT = { is_rival = ROOT }
@@ -12,7 +12,7 @@ cal_add_opinion_modifiers_caliphate = {
 		    modifier = cal_calipahte_muslim_mod
 		}
 	}
-	all_countries = {
+	every_country = {
 		limit = {
 			is_rival = ROOT
 		}
@@ -21,7 +21,7 @@ cal_add_opinion_modifiers_caliphate = {
 		    modifier = cal_calipahte_rival_mod
 		}
 	}
-	all_countries = {
+	every_country = {
 		limit = {
 			vassal_of = ROOT
 		}
@@ -30,7 +30,7 @@ cal_add_opinion_modifiers_caliphate = {
 		    modifier = cal_calipahte_vassal_mod
 		}
 	}
-	all_countries = {
+	every_country = {
 		limit = {
 			NOT = { religion_group = muslim }
 			NOT = { is_rival = ROOT }

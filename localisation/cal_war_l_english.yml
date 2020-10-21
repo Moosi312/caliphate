@@ -20,7 +20,7 @@
   take_capital_attack_caliphate_heretic_desc: "Take the enemy's capital"
   take_capital_attack_caliphate_heathen: "Take capital"
   take_capital_attack_caliphate_heathen_desc: "Take the enemy's capital"
-  CALIPHATE_ATTACK_WAR_NAME : "War to topple the Caliphate"
+  CALIPHATE_ATTACK_WAR_NAME: "War to topple the Caliphate"
   PEACE_cal_take_caliphate_sunni: "Take Sunni Caliphate"
   CB_ALLOWED_cal_take_caliphate_sunni: "Take Sunni Caliphate"
   cal_take_caliphate_sunni_desc: "Take the Sunni Caliphate from [From.GetName]"

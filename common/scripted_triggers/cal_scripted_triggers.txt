@@ -19,7 +19,7 @@
 # my_test_trigger = { ARG1=foo ARG2=bar CONTEXT=FROM }
 
 #GENERAL TRIGGERS
-cal_is_caliph = {
+is_caliph = {
 	custom_trigger_tooltip = {
 		tooltip = cal_is_caliph
 		OR = {

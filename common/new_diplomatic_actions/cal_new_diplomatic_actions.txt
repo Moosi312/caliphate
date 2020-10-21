@@ -134,7 +134,7 @@ cal_demand_religious_conversion_heretic = {
 	}
 	on_accept = {
 		change_religion = ROOT
-		reverse_add_opinion = {
+		add_opinion = {
 		    who = ROOT
 		    modifier = cal_forced_religion
 		}
