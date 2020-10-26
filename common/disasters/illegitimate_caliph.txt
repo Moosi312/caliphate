@@ -1,0 +1,124 @@
+cal_illegitimate_caliph = {
+	potential = {
+		is_free_or_tributary_trigger = yes
+		is_caliph = yes
+		num_of_cities = 8
+	}
+
+
+	can_start = {
+		is_caliph = yes
+		has_any_disaster = no
+		NOT = { legitimacy = 50 }
+		NOT = { prestige = 0 }
+		NOT = { stability = 0 }
+	}
+	
+	
+	can_stop = {
+		OR = {
+			has_any_disaster = yes
+			AND = {
+				stability = 3
+				legitimacy = 90
+				prestige = 50
+			}
+		}
+	}
+	
+	progress = {
+		modifier = {
+			factor = 1
+			has_country_modifier = cal_not_defender
+		}
+		modifier = {
+			factor = 2
+			has_country_modifier = cal_stronger_muslim
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { prestige = 0 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { legitimacy = 50 }
+			legitimacy = 20
+		}
+		modifier = {
+			factor = 1
+			NOT = { legitimacy = 20 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { stability = 1 }
+			stability = 0
+		}
+		modifier = {
+			factor = 1
+			NOT = { stability = 0 }
+			stability = -1
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { stability = -1 }
+			stability = -2
+		}
+		modifier = {
+			factor = 2
+			NOT = { stability = -2 }
+			stability = -3
+		}
+		modifier = {
+			factor = 1
+			NOT = { unrest = 1 }
+		}
+	}
+
+
+
+
+	
+	can_end = {
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		NOT = { num_of_rebel_armies = 1 }
+		stability = 3
+		legitimacy = 90
+		prestige = 50
+
+		custom_trigger_tooltip = {
+			tooltip = disaster_active_for_10_years_tooltip
+			had_country_flag = { flag = cal_has_illegimitate_caliph days = 3650 }
+		}
+	}
+	
+
+
+
+	modifier = {
+		global_unrest = 5
+		legitimacy = -1
+		prestige = -1
+		land_morale = -0.1
+		tolerance_own = -2
+		tolerance_heretic = -4
+		tolerance_heathen = -4
+	}
+	
+	on_start = cal_disaster.1
+	on_end = cal_disaster.100
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = {
+			1000 = 0
+			50 = court_and_country_events.2 #
+			50 = court_and_country_events.3 #
+			50 = court_and_country_events.4 #
+			50 = court_and_country_events.5 #
+			50 = court_and_country_events.6 #
+			50 = court_and_country_events.7 #
+		}
+	}
+}
+

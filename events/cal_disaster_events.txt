@@ -1,0 +1,179 @@
+#######################
+##  Disaster events  ##
+#######################
+
+namespace = cal_disaster
+
+######################
+##  Message events  ##
+######################
+
+country_event = {#start of the disaster
+	id = cal_disaster.1
+	title = cal_disaster.1.t
+	desc = cal_disaster.1.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	is_triggered_only = yes
+
+	major = yes
+
+	immediate = {
+		random_owned_province = {
+			limit = {
+				NOT = { has_province_flag = cal_disaster_spawn_rebels_here }
+				NOT = { units_in_province = 1 }
+				is_capital = no
+			}
+			set_province_flag = cal_disaster_spawn_rebels_here
+		}
+		if = {
+			limit = {
+				num_of_cities = 30
+			}
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = cal_disaster_spawn_rebels_here }
+					NOT = { units_in_province = 1 }
+					is_capital = no
+				}
+				set_province_flag = cal_disaster_spawn_rebels_here
+			}
+		}
+
+	}
+
+	option = { #harsh treatment
+		name = cal_disaster.1.a
+
+		random_owned_province = {
+			limit = {
+				has_province_flag = cal_disaster_spawn_rebels_here
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				use_monarch_as_leader = yes
+				size = 3
+			}
+			clr_province_flag = cal_disaster_spawn_rebels_here
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					has_province_flag = cal_disaster_spawn_rebels_here
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_province_flag = cal_disaster_spawn_rebels_here
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 2
+				}
+				clr_province_flag = cal_disaster_spawn_rebels_here
+			}
+		}
+
+		add_disaster_modifier = {
+			name = "cal_disaster_harsh"
+			duration = -1
+			disaster = cal_illegitimate_caliph
+		}
+	}
+
+	option = { #mild treatment
+		name = cal_disaster.1.a
+
+		random_owned_province = {
+			limit = {
+				has_province_flag = cal_disaster_spawn_rebels_here
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				use_monarch_as_leader = yes
+				size = 3
+			}
+			clr_province_flag = cal_disaster_spawn_rebels_here
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					has_province_flag = cal_disaster_spawn_rebels_here
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_province_flag = cal_disaster_spawn_rebels_here
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 2
+				}
+				clr_province_flag = cal_disaster_spawn_rebels_here
+			}
+		}
+
+		add_disaster_modifier = {
+			name = "cal_disaster_mild"
+			duration = -1
+			disaster = cal_illegitimate_caliph
+		}
+	}
+
+	option = { #abandon caliphate, become atheist
+		name = cal_disaster.1.b
+
+		if = {
+			limit = {
+				NOT = { government = republic }
+			}
+			change_government_to_republic = yes
+		}
+		add_government_reform = cal_atheist_republic_reform
+
+		random_owned_province = {
+			limit = {
+				has_province_flag = cal_disaster_spawn_rebels_here
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				use_monarch_as_leader = yes
+				size = 3
+			}
+			clr_province_flag = cal_disaster_spawn_rebels_here
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					has_province_flag = cal_disaster_spawn_rebels_here
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_province_flag = cal_disaster_spawn_rebels_here
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 2
+				}
+				clr_province_flag = cal_disaster_spawn_rebels_here
+			}
+		}
+	}
+}
+
+country_event = { #order restored
+	id = cal_disaster.100
+	title = cal_disaster.100.t
+	desc = cal_disaster.100.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {
+		name = cal_disaster.100.a
+	}
+}

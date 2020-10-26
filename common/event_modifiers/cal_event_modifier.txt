@@ -67,3 +67,21 @@ cal_caliphate_lost = {
 	brahmins_hindu_loyalty_modifier = -0.2
 	picture = "tolerance_heathen"
 }
+
+cal_disaster_harsh = {
+	tolerance_heretic = -2
+	tolerance_heathen = -2
+
+	global_missionary_strength = 0.03
+	global_manpower_modifier = -0.10
+	land_attrition = 0.10
+}
+
+cal_disaster_mild = {
+	tolerance_own = -2
+
+	global_missionary_strength = -0.03
+	land_maintenance_modifier = 0.10
+	merc_maintenance_modifier = 0.10
+	siege_ability = -0.10
+}
