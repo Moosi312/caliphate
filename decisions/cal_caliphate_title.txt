@@ -1,10 +1,64 @@
 country_decisions = {
 
+	cal_take_caliphate = {
+		major = yes
+		potential = {
+			religion_group = muslim
+			NOT = { has_country_modifier = cal_caliphate }
+			NOT = { has_global_flag = cal_caliphate_fixed }
+			all_country = {
+				NOT = {
+					has_country_modifier = cal_caliphate
+				}
+			}
+		}
+		allow = {
+			government_rank = 3
+
+			owns_or_non_sovereign_subject_of = 410
+			owns_or_non_sovereign_subject_of = 385
+			owns_or_non_sovereign_subject_of = 382
+			
+			is_defender_of_faith = yes
+
+			treasury = 1000
+			prestige = 100
+			legitimacy = 100
+
+			religious_unity = 1
+
+			num_of_owned_provinces_with = {
+				value = 150
+				religion_group = muslim
+				is_overseas = no
+			}
+		}
+	 	effect = {
+			add_country_modifier = { 
+			    name = cal_caliphate
+			    duration = -1
+			}
+			add_legitimacy = 50
+			add_prestige = 50
+
+			add_treasury = -1000
+
+			custom_tooltip = cal_caliphate_wars_tt
+
+			cal_add_opinion_modifiers_caliphate = yes
+			every_country = {
+				country_event = { cal_flavor.1 }
+			}
+		}
+	}
+
 	cal_take_caliphate_sunni = {
 		major = yes
 		potential = {
+			always = no
 			religion = sunni
 			NOT = { has_country_modifier = cal_caliphate_sunni }
+			NOT = { has_global_flag = cal_caliphate_fixed }
 			all_country = {
 				NOT = {
 					has_country_modifier = cal_caliphate_sunni
@@ -14,9 +68,9 @@ country_decisions = {
 		allow = {
 			government_rank = 3
 
-			owns = 410
-			owns = 385
-			owns = 382
+			owns_or_non_sovereign_subject_of = 410
+			owns_or_non_sovereign_subject_of = 385
+			owns_or_non_sovereign_subject_of = 382
 			
 			is_defender_of_faith = yes
 
@@ -54,8 +108,10 @@ country_decisions = {
 	cal_take_caliphate_shia = {
 		major = yes
 		potential = {
+			always = no
 			religion = shia
 			NOT = { has_country_modifier = cal_caliphate_shia }
+			NOT = { has_global_flag = cal_caliphate_fixed }
 			all_country = {
 				NOT = {
 					has_country_modifier = cal_caliphate_shia
@@ -105,8 +161,10 @@ country_decisions = {
 	cal_take_caliphate_ibadi = {
 		major = yes
 		potential = {
+			always = no
 			religion = ibadi
 			NOT = { has_country_modifier = cal_caliphate_ibadi }
+			NOT = { has_global_flag = cal_caliphate_fixed }
 			all_country = {
 				NOT = {
 					has_country_modifier = cal_caliphate_ibadi

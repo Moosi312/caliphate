@@ -19,11 +19,10 @@ cal_not_defender = {
 		is_defender_of_faith = no
 	}
 
-	legitimacy = -1
 	prestige = -1
-	diplomatic_reputation = -5
+	diplomatic_reputation = -2
 	global_unrest = 2
-	land_morale = -0.2
+	land_morale = -0.1
 
 	picture = "tolerance_heretic"
 }

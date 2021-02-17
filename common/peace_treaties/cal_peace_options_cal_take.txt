@@ -7,11 +7,11 @@
 # Nor do they support setting provinces (like cede province) or third party countries (like annull treaties) as targets.
 
 
-####################
-#  Take Caliphate  #
-####################
+###########
+#  Sunni  #
+###########
 
-cal_remove_caliphate = {
+cal_take_caliphate_sunni = {
 	category = 6
 	power_projection = humiliated_rival
 	power_cost_base = 1.0
@@ -34,20 +34,19 @@ cal_remove_caliphate = {
 	requires_is_allowed = no # If set to "yes", treaty will only be visible when explicitly allowed by casus belli. If not, it will be available but cost diplomatic power.
 	
 	is_visible = { # Defaults to equivalent of "always = yes"
+		religion_group = muslim
 		FROM = {
-			is_caliph = yes
+			has_country_modifier = cal_caliphate
 		}
 	}
 	is_allowed = { # Defaults to equivalent of "always = yes"
+		religion_group = muslim
 		FROM = {
-			is_caliph = yes
+			has_country_modifier = cal_caliphate
 		}
 	}
 	effect = { # Defaults to empty effect (which makes error log entry but is safe)
 		FROM = {
-			remove_country_modifier = cal_caliphate_sunni
-			remove_country_modifier = cal_caliphate_shia
-			remove_country_modifier = cal_caliphate_ibadi
 			remove_country_modifier = cal_caliphate
 			add_stability = -3
 			add_legitimacy = -50
@@ -58,12 +57,13 @@ cal_remove_caliphate = {
 			}
 		}
 		add_country_modifier = { 
-		    name = cal_caliphate_destroyed
-		    duration = 3650
+		    name = cal_caliphate
+		    duration = -1
 		}
 		add_prestige = 50
+		cal_add_opinion_modifiers_caliphate = yes
 		every_country = {
-			country_event = { cal_flavor.3 }
+			country_event = { cal_flavor.2 }
 		}
 	}
 	ai_weight = { # Defaults to always evaluate to 0

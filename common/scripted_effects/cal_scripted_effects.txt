@@ -24,6 +24,7 @@ cal_add_opinion_modifiers_caliphate = {
 	every_country = {
 		limit = {
 			vassal_of = ROOT
+			religion_group = muslim
 		}
 		reverse_add_opinion = {
 		    who = ROOT

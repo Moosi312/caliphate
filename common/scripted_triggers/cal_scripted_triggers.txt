@@ -26,6 +26,7 @@ is_caliph = {
 			has_country_modifier = cal_caliphate_sunni
 			has_country_modifier = cal_caliphate_shia
 			has_country_modifier = cal_caliphate_ibadi
+			has_country_modifier = cal_caliphate
 		}
 	}
 }

@@ -15,12 +15,28 @@
 
 
 # Take caliphate
+cb_take_caliphate = {
+	valid_for_subject = no
+
+	prerequisites = {
+		is_subject = no
+		FROM = { has_country_modifier = cal_caliphate }
+		NOT = { has_global_flag = cal_caliphate_fixed }
+		religion_group = muslim
+		NOT = { truce_with = FROM }
+		is_revolutionary = no
+	}
+
+	war_goal = take_capital_caliphate
+}
+
 cb_take_caliphate_sunni = {
 	valid_for_subject = no
 
 	prerequisites = {
 		is_subject = no
 		FROM = { has_country_modifier = cal_caliphate_sunni }
+		NOT = { has_global_flag = cal_caliphate_fixed }
 		religion = sunni
 		NOT = { truce_with = FROM }
 		is_revolutionary = no
@@ -35,6 +51,7 @@ cb_take_caliphate_shia = {
 	prerequisites = {
 		is_subject = no
 		FROM = { has_country_modifier = cal_caliphate_shia }
+		NOT = { has_global_flag = cal_caliphate_fixed }
 		religion = sunni
 		NOT = { truce_with = FROM }
 		is_revolutionary = no
@@ -49,6 +66,7 @@ cb_take_caliphate_ibadi = {
 	prerequisites = {
 		is_subject = no
 		FROM = { has_country_modifier = cal_caliphate_ibadi }
+		NOT = { has_global_flag = cal_caliphate_fixed }
 		religion = sunni
 		NOT = { truce_with = FROM }
 		is_revolutionary = no
@@ -64,6 +82,7 @@ cb_remove_caliph_heretic = {
 	prerequisites = {
 		is_subject = no
 		FROM = { is_caliph = yes }
+		NOT = { has_global_flag = cal_caliphate_fixed }
 		religion_group = muslim
 		NOT = { religion = FROM }
 		NOT = { truce_with = FROM }
@@ -72,15 +91,48 @@ cb_remove_caliph_heretic = {
 	war_goal = take_capital_attack_caliphate_heretic
 }
 
-cb_remove_caliph_heathen = {
+#cb_remove_caliph_heathen = {
+#	valid_for_subject = no
+#
+#	prerequisites = {
+#		is_subject = no
+#		FROM = { is_caliph = yes }
+#		NOT = { has_global_flag = cal_caliphate_fixed }
+#		NOT = { religion_group = muslim }
+#		NOT = { truce_with = FROM }
+#	}
+#
+#	war_goal = take_capital_attack_caliphate_heathen
+#}
+
+cb_religous_state_jihad = {
 	valid_for_subject = no
 
 	prerequisites = {
 		is_subject = no
 		FROM = { is_caliph = yes }
-		NOT = { religion_group = muslim }
+		has_global_flag = cal_caliphate_fixed
+		has_reform = cal_religous_state_reform
+		religion_group = muslim
+		NOT = { religion = FROM }
 		NOT = { truce_with = FROM }
 	}
 
-	war_goal = take_capital_attack_caliphate_heathen
+	war_goal = superiority_religious_state_jihad
+}
+
+superiority_religious_state_unify = {
+	valid_for_subject = no
+
+	prerequisites = {
+		is_subject = no
+		FROM = { is_caliph = yes }
+		has_global_flag = cal_caliphate_fixed
+		has_reform = cal_religous_state_reform
+		religion_group = muslim
+		religion_group = FROM
+		NOT = { truce_with = FROM }
+	}
+
+	war_goal = superiority_religious_state_jihad
 }

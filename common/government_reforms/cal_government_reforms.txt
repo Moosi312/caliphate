@@ -39,6 +39,50 @@ cal_caliphate_reform = {
 	}
 }
 
+cal_religous_state_reform = {
+	icon = "feudal_theocracy"
+
+	legacy_equivalent = cal_religous_state_legacy
+
+ 	allow_convert = yes
+	allow_normal_conversion = no
+	valid_for_nation_designer = no
+	valid_for_new_country = no
+	lock_level_when_selected = yes
+	locked_government_type = yes
+
+	potential = {
+		OR = {
+			has_reform = cal_religous_state_reform
+			have_had_reform = cal_religous_state_reform
+		}
+	}
+
+	modifiers = {
+		missionaries = 2
+		global_missionary_strength = 0.03
+		tolerance_own = 4
+		tolerance_heathen = -3
+		tolerance_heretic = -3
+		governing_capacity = 100
+		brahmins_hindu_loyalty_modifier = 0.1
+		church_loyalty_modifier = 0.1
+		dhimmi_loyalty_modifier = -0.05
+		jains_loyalty_modifier = -0.05
+		rajput_muslim_loyalty_modifier = -0.05
+		max_absolutism = 20
+	}
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+	ai = {
+		factor = 0.5 #generic
+	}
+}
+
 
 # Legacy
 
@@ -59,6 +103,41 @@ cal_caliphate_legacy = {
 		brahmins_hindu_loyalty_modifier = 0.05
 		church_loyalty_modifier = 0.05
 		max_absolutism = 10
+	}
+
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			feudal_theocracy_mechanic
+		}
+	}
+	ai = {
+		factor = 5
+	}
+}
+
+cal_religous_state_legacy = {
+	icon = "feudal_theocracy"
+	allow_normal_conversion = no
+	legacy_government = yes
+	valid_for_new_country = no
+	allow_convert = no
+	valid_for_nation_designer = no
+
+	monarchy = yes
+	modifiers = {
+		missionaries = 2
+		global_missionary_strength = 0.03
+		tolerance_own = 4
+		tolerance_heathen = -3
+		tolerance_heretic = -3
+		governing_capacity = 100
+		brahmins_hindu_loyalty_modifier = 0.1
+		church_loyalty_modifier = 0.1
+		dhimmi_loyalty_modifier = -0.05
+		jains_loyalty_modifier = -0.05
+		rajput_muslim_loyalty_modifier = -0.05
+		max_absolutism = 20
 	}
 
 	conditional = {

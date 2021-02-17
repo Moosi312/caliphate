@@ -72,7 +72,88 @@ country_event = {#caliphate from inside
 ## flavor events  ##
 ####################
 
-# no defender malus
+country_event = {#unify islam
+	id = cal_flavor.5
+	title = cal_flavor.5.t
+	desc = cal_flavor.5.d
+	picture = HAJJ_eventPicture
 
-# caliphate lost malus
+	is_triggered_only = yes
 
+	major = yes
+
+	option = {#islamic state
+		name = cal_flavor.5.a
+		effect = {
+			change_tag = ISL
+			if = {
+				limit = {
+					NOT = { government = monarchy }
+				}
+				change_government_to_monarchy = yes
+			}
+			add_government_reform = cal_religious_state
+		}
+	}
+
+	option = {#moderate caliphate
+		name = cal_flavor.5.b
+		effect = {
+			if = {
+				limit = {
+					NOT = { government = monarchy }
+				}
+				change_government_to_monarchy = yes
+			}
+			add_government_reform = cal_caliphate
+		}
+	}
+	option = {#secular
+		name = cal_flavor.5.c
+		effect = {
+			add_country_modifier = {
+				name = cal_secular_caliphate
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {#chance to change religion to islam
+	id = cal_flavor.6
+	title = cal_flavor.6.t
+	desc = cal_flavor.6.d
+	picture = HAJJ_eventPicture
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {#convert
+		name = cal_flavor.6.a
+
+		effect = {
+			change_religion = islam
+		}
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 0
+				always = no
+			}
+		}
+	}
+
+	option = {#not convert
+		name = cal_flavor.6.b
+
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 0
+				always = no
+			}
+		}
+	}
+}

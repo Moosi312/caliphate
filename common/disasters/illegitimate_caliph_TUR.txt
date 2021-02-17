@@ -3,7 +3,7 @@ cal_illegitimate_caliph = {
 		is_free_or_tributary_trigger = yes
 		is_caliph = yes
 		num_of_cities = 8
-		NOT = { tag = TUR }
+		tag = TUR
 	}
 
 

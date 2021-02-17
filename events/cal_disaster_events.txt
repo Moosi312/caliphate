@@ -160,6 +160,25 @@ country_event = {#start of the disaster
 				clr_province_flag = cal_disaster_spawn_rebels_here
 			}
 		}
+
+		if = {
+			limit = {
+				has_country_modifier = cal_caliphate_sunni
+			}
+			remove_country_modifier = cal_caliphate_sunni
+		}
+		if = {
+			limit = {
+				has_country_modifier = cal_caliphate_shia
+			}
+			remove_country_modifier = cal_caliphate_shia
+		}
+		if = {
+			limit = {
+				has_country_modifier = cal_caliphate_ibadi
+			}
+			remove_country_modifier = cal_caliphate_ibadi
+		}
 	}
 }
 

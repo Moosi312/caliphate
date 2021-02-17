@@ -74,9 +74,16 @@ cal_legitimize_minor = {
 		FROM = {
 			religion = ROOT
 			is_subject = no
+			OR = {
+				had_country_flag = {
+					flag = cal_legitimzed_ruler
+					days = 365
+				}
+				NOT = { has_country_flag = cal_legitimzed_ruler }
+			}
 		}
 		years_of_income = FROM
-		prestige = 0
+		prestige = 5
 		legitimacy = 5
 	}
 	on_accept = {
@@ -87,14 +94,16 @@ cal_legitimize_minor = {
 		}
 		add_legitimacy = -5
 		add_prestige = -5
+		add_years_of_income = -1
 		FROM = {
 			add_legitimacy = 5
 			add_prestige = 5
 			add_years_of_income = 1
-				reverse_add_opinion = {
+			reverse_add_opinion = {
 			    who = ROOT
 			    modifier = cal_caliph_legitimized
 			}
+			set_country_flag = cal_legitimzed_ruler
 		}
 	}
 
@@ -133,7 +142,7 @@ cal_demand_religious_conversion_heretic = {
 		}
 	}
 	on_accept = {
-		change_religion = ROOT
+		FROM = { change_religion = ROOT }
 		add_opinion = {
 		    who = ROOT
 		    modifier = cal_forced_religion
