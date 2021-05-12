@@ -1,0 +1,199 @@
+estate_scholars =
+{
+	icon = 5
+
+	# If true, country will get estate
+	trigger = {
+		NOT = { has_reform = pirate_republic_reform }
+		NOT = { has_government_attribute = is_merchant_republic }
+		NOT = { has_reform = veche_republic }
+		NOT = { has_reform = trading_city }
+		NOT = { has_reform = cossacks_reform }
+		NOT = { has_reform = siberian_tribe }
+		NOT = { government = native }
+		NOT = { is_revolutionary_republic_trigger = yes }
+		religion_group = irreligious
+		NOT = { has_reform = revolutionary_empire_reform }
+	}
+
+	# These scale with loyalty & power
+	country_modifier_happy = {
+		global_tax_modifier = 0.2
+		papal_influence = 1
+		devotion = 0.5
+		church_power_modifier = 0.1
+		monthly_fervor_increase = 1
+		stability_cost_modifier = -0.1
+	}
+	country_modifier_neutral = {
+		global_tax_modifier = 0.2
+	}	
+	country_modifier_angry = {
+		global_tax_modifier = -0.1
+		papal_influence = -1
+		devotion = -0.5
+		church_power_modifier = -0.25
+		monthly_fervor_increase = -1
+		stability_cost_modifier = 0.1
+		global_unrest = 2
+	}
+
+	land_ownership_modifier = {
+		scholars_loyalty_modifier = 0.2
+	}
+
+	province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			NOT = { religion_group = owner }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { religion = owner }
+		}
+		modifier = {
+			factor = 0.67
+			NOT = { is_state_core = owner }
+		}
+		modifier = {
+			factor = 1.2
+			base_tax = 10
+		}
+	}
+
+	# Influence modifiers
+	base_influence = 10
+	influence_modifier = {
+		desc = EST_VAL_STATE_RELIGIOUS_MINORITY
+		trigger = {
+			NOT = { dominant_religion = ROOT }
+		}	
+		influence = -15
+	}
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			OR = {
+				has_disaster = estate_nobility_disaster
+				has_disaster = estate_burghers_disaster
+				has_disaster = estate_brahmins_disaster
+				has_disaster = estate_vaisyas_disaster
+				has_disaster = estate_jains_disaster
+				has_disaster = estate_church_disaster
+			}
+		}
+		influence = -40
+	}
+	influence_modifier = {
+		desc = EST_UNIVERSITIES
+		trigger = {
+			university = 1
+			NOT = { university = 10 }
+		}
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_UNIVERSITIES
+		trigger = {
+			university = 10
+			NOT = {university = 25}
+		}
+		influence = 10
+	}
+	influence_modifier = {
+		desc = EST_UNIVERSITIES
+		trigger = {
+			university = 25
+		}
+		influence = 20
+	}
+
+	loyalty_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
+		trigger = {
+			OR = {
+				has_disaster = estate_nobility_disaster
+				has_disaster = estate_burghers_disaster
+				has_disaster = estate_brahmins_disaster
+				has_disaster = estate_vaisyas_disaster
+				has_disaster = estate_jains_disaster
+				has_disaster = estate_church_disaster
+			}
+		}
+		loyalty = -20
+	}
+	loyalty_modifier = {
+		desc = EST_INWARD_PERFECTION_OFFENSIVE_WAR
+		trigger = {
+			has_estate_privilege = estate_church_inwards_perfection
+			is_in_war = {
+				attacker_leader = ROOT
+			}
+		}
+		loyalty = -20
+	}
+	loyalty_modifier = {
+		desc = EST_INNOVATION
+		trigger = {
+			NOT = { innovativeness = 10 }
+		}
+		loyalty = -10
+	}
+	loyalty_modifier = {
+		desc = EST_INNOVATION
+		trigger = {
+			innovativeness = 25
+			NOT = { innovativeness = 50 }
+		}
+		loyalty = 10
+	}
+	loyalty_modifier = {
+		desc = EST_INNOVATION
+		trigger = {
+			innovativeness = 50
+		}
+		loyalty = 20
+	}
+	loyalty_modifier = {
+		desc = EST_TECH_DIFFERENCE
+		trigger = {
+			any_neighbor_country = {
+				tech_difference = 2
+			} 
+		}
+		loyalty = 20
+	}
+
+	contributes_to_curia_treasury = yes
+	color = { 200 150 0 }
+
+	privileges = {
+		estate_scholars_land_rights
+		estate_scholars_scholar_state
+		estate_scholars_new_world_mission
+		estate_scholars_scholarly_ministers
+		estate_scholars_scholarly_oversight
+		estate_scholars_inwards_perfection
+		estate_scholars_enforced_no_faith
+		estate_church_monopoly_of_incense
+		estate_church_monopoly_of_wool
+		estate_church_monopoly_of_wine
+		estate_church_monopoly_of_slaves
+	}
+
+	agendas = {
+		estate_church_develop_x
+		estate_church_build_university_in_y
+		estate_church_build_manufactory_in_y
+		estate_church_reduce_war_exhaustion
+		estate_church_recover_stability
+		estate_church_increase_stability
+		estate_church_reduce_overextension
+		estate_church_protect_brethren
+		estate_church_relations_with_dotf
+		estate_church_hire_advisor
+		estate_church_fire_advisor
+	}
+	influence_from_dev_modifier = 1.0
+}

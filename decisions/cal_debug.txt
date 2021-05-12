@@ -1,0 +1,20 @@
+country_decisions = {
+	cal_atheism = {
+		major = yes
+		potential = {
+			always = yes
+		}
+		effect = {
+			change_religion = atheism
+		}
+	}
+	cal_secularism = {
+		major = yes
+		potential = {
+			always = yes
+		}
+		effect = {
+			change_religion = secularism
+		}
+	}
+}
