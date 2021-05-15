@@ -28,3 +28,13 @@ cal_forced_religion = {
 	opinion = -50
 	yearly_decay = 1
 }
+
+cal_islamic_state_opinion = {
+	opinion = -100
+	yearly_decay = 1
+}
+
+cal_protector_opinion = {
+	opinion = 50
+	yearly_decay = 1
+}

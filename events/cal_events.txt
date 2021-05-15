@@ -84,75 +84,65 @@ country_event = {#unify islam
 
 	option = {#islamic state
 		name = cal_flavor.5.a
-		effect = {
-			change_tag = ISL
-			if = {
-				limit = {
-					NOT = { government = monarchy }
-				}
-				change_government_to_monarchy = yes
+		change_tag = ISS
+		if = {
+			limit = { has_custom_ideas = no }
+			country_event = { id = ideagroups.1 } #Swap Ideas
+		}
+		remove_non_electors_emperors_from_empire_effect = yes
+
+		if = {
+			limit = {
+				NOT = { government = monarchy }
 			}
-			add_government_reform = cal_religious_state
+			change_government_to_monarchy = yes
+		}
+		add_government_reform = cal_caliphate_reform
+
+		add_country_modifier = {
+			name = cal_islamic_state
+			duration = -1
+		}
+		every_country = {
+			limit = {
+				NOT = { religion_group = muslim }
+			}
+			reverse_add_opinion = {
+				who = THIS
+				modifier = cal_islamic_state_opinion
+			}
 		}
 	}
 
 	option = {#moderate caliphate
 		name = cal_flavor.5.b
-		effect = {
-			if = {
-				limit = {
-					NOT = { government = monarchy }
-				}
-				change_government_to_monarchy = yes
+		if = {
+			limit = {
+				NOT = { government = monarchy }
 			}
-			add_government_reform = cal_caliphate
+			change_government_to_monarchy = yes
+		}
+		add_government_reform = cal_caliphate_reform
+
+		add_country_modifier = {
+			name = cal_moderate_caliphate
+			duration = -1
 		}
 	}
-	option = {#secular
+	option = {#protector
 		name = cal_flavor.5.c
-		effect = {
-			add_country_modifier = {
-				name = cal_secular_caliphate
-				duration = -1
+
+		add_country_modifier = {
+			name = cal_protector_caliphate
+			duration = -1
+		}
+		every_country = {
+			limit = {
+				religion_group = muslim
 			}
-		}
-	}
-}
-
-country_event = {#chance to change religion to islam
-	id = cal_flavor.6
-	title = cal_flavor.6.t
-	desc = cal_flavor.6.d
-	picture = HAJJ_eventPicture
-
-	is_triggered_only = yes
-
-	major = yes
-
-	option = {#convert
-		name = cal_flavor.6.a
-
-		effect = {
-			change_religion = islam
-		}
-
-		ai_chance = { 
-			factor = 1
-			modifier = {
-				factor = 0
-				always = no
-			}
-		}
-	}
-
-	option = {#not convert
-		name = cal_flavor.6.b
-
-		ai_chance = { 
-			factor = 1
-			modifier = {
-				factor = 0
-				always = no
+			reverse_add_opinion = {
+				who = THIS
+				modifier = cal_protector_opinion
 			}
 		}
 	}

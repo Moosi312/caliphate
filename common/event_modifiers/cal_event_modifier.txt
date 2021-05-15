@@ -104,3 +104,15 @@ cal_disaster_abandon = {
 	global_heretic_missionary_strength = -0.03
 	religious_unity = -0.1
 }
+
+cal_islamic_state = {
+
+}
+
+cal_moderate_caliphate = {
+
+}
+
+cal_protector_caliphate = {
+
+}

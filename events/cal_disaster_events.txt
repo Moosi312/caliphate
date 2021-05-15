@@ -19,6 +19,7 @@ country_event = {#start of the disaster
 	major = yes
 
 	immediate = {
+		set_country_flag = cal_has_illegimitate_caliph
 		random_owned_province = {
 			limit = {
 				NOT = { has_province_flag = cal_disaster_spawn_rebels_here }
@@ -43,8 +44,10 @@ country_event = {#start of the disaster
 
 	}
 
-	option = { #harsh treatment
+	option = { #caliphate
 		name = cal_disaster.1.a
+
+		set_country_flag = cal_caliphate_fight
 
 		random_owned_province = {
 			limit = {
@@ -52,7 +55,6 @@ country_event = {#start of the disaster
 			}
 			spawn_rebels = {
 				type = pretender_rebels
-				use_monarch_as_leader = yes
 				size = 3
 			}
 			clr_province_flag = cal_disaster_spawn_rebels_here
@@ -82,8 +84,10 @@ country_event = {#start of the disaster
 		}
 	}
 
-	option = { #mild treatment
-		name = cal_disaster.1.a
+	option = { #abandon caliphate, become atheist
+		name = cal_disaster.1.b
+
+		set_country_flag = cal_atheist_state
 
 		random_owned_province = {
 			limit = {
@@ -113,16 +117,6 @@ country_event = {#start of the disaster
 				clr_province_flag = cal_disaster_spawn_rebels_here
 			}
 		}
-
-		add_disaster_modifier = {
-			name = "cal_disaster_mild"
-			duration = -1
-			disaster = cal_illegitimate_caliph
-		}
-	}
-
-	option = { #abandon caliphate, become atheist
-		name = cal_disaster.1.b
 
 		if = {
 			limit = {
@@ -132,35 +126,13 @@ country_event = {#start of the disaster
 		}
 		add_government_reform = cal_atheist_republic_reform
 
-		random_owned_province = {
-			limit = {
-				has_province_flag = cal_disaster_spawn_rebels_here
-			}
-			spawn_rebels = {
-				type = pretender_rebels
-				use_monarch_as_leader = yes
-				size = 3
-			}
-			clr_province_flag = cal_disaster_spawn_rebels_here
-		}
+
 		if = {
 			limit = {
-				any_owned_province = {
-					has_province_flag = cal_disaster_spawn_rebels_here
-				}
+				has_country_modifier = cal_caliphate
 			}
-			random_owned_province = {
-				limit = {
-					has_province_flag = cal_disaster_spawn_rebels_here
-				}
-				spawn_rebels = {
-					type = pretender_rebels
-					size = 2
-				}
-				clr_province_flag = cal_disaster_spawn_rebels_here
-			}
+			remove_country_modifier = cal_caliphate
 		}
-
 		if = {
 			limit = {
 				has_country_modifier = cal_caliphate_sunni
@@ -192,7 +164,72 @@ country_event = { #order restored
 
 	major = yes
 
-	option = {
+	immediate = {
+		#clear flags
+	}
+
+	option = { #atheist state victory
 		name = cal_disaster.100.a
+		trigger = {
+			has_country_flag = cal_atheist_state
+			NOT = { has_country_modifier = just_lost_to_rebels }
+		}
+		if = {
+			limit = { NOT = { government = republic } }
+			change_government_to_republic = yes
+			add_government_reform = cal_atheist_republic_reform
+		}
+		add_prestige = 50
+		if = {
+			limit = {
+				NOT = {
+					stability = 2
+				}
+			}
+			add_stability = 2
+		}
+		else = { add_republican_tradition = 20 }
+	}
+
+	option = { #caliphate victory
+		trigger = {
+			has_country_flag = cal_caliphate_fight
+			NOT = { has_country_modifier = just_lost_to_rebels }
+		}
+		if = {
+			limit = { NOT = { government = monarchy }}
+			change_government_to_monarchy = yes
+		}
+		add_prestige = 50
+		add_absolutism = 10
+		if = {
+			limit = {
+				NOT = {
+					stability = 2
+				}
+			}
+			add_stability = 2
+		}
+		else = { add_legitimacy = 20 }
+	}
+
+	option = { #atheists lost
+		trigger = {
+			has_country_flag = cal_atheist_state
+			has_country_modifier = just_lost_to_rebels
+		}
+		if = {
+			limit = { NOT = { government = monarchy }}
+			change_government_to_monarchy = yes
+		}
+	}
+
+	option = { #caliphate lost
+		trigger = {
+			has_country_flag = cal_caliphate_fight
+			has_country_modifier = just_lost_to_rebels
+		}
+		change_government_to_republic = yes
+		add_government_reform = cal_atheist_republic_reform
 	}
 }

@@ -82,13 +82,29 @@ cal_illegitimate_caliph = {
 	can_end = {
 		NOT = { num_of_rebel_controlled_provinces = 1 }
 		NOT = { num_of_rebel_armies = 1 }
-		stability = 3
-		legitimacy = 90
-		prestige = 50
+		
+		OR = {
+			AND = {
+				religious_unity = 1
+				stability = 2
+				legitimacy = 80
+				prestige = 50
+			}
+			AND = {
+				stability = 3
+				legitimacy = 90
+				prestige = 50
+			}
+		}
 
 		custom_trigger_tooltip = {
 			tooltip = disaster_active_for_10_years_tooltip
 			had_country_flag = { flag = cal_has_illegimitate_caliph days = 3650 }
+		}
+
+		hidden_trigger = {
+			NOT = { has_country_modifier = just_lost_to_rebels }
+			NOT = { has_country_flag = english_civil_war_start_event }
 		}
 	}
 	
@@ -103,6 +119,7 @@ cal_illegitimate_caliph = {
 		tolerance_own = -2
 		tolerance_heretic = -4
 		tolerance_heathen = -4
+		religious_unity = -0.2
 	}
 	
 	on_start = cal_disaster.1
