@@ -161,7 +161,6 @@ estate_scholars_new_world_mission = {
 	penalties = {
 	}
 	benefits = {
-		free_maintenance_on_expl_conq = yes
 		global_colonial_growth = 20
 		colonists = 1
 
@@ -175,11 +174,6 @@ estate_scholars_scholarly_ministers = {
 	icon = privilege_empty_throne
 	max_absolutism = -5
 	influence = 0.10
-	conditional_modifier = {
-		modifier = {
-			missionary_maintenance_cost = -0.2
-		}
-	}
 	conditional_modifier = {
 		trigger = {
 			religion = secularism
@@ -195,6 +189,7 @@ estate_scholars_scholarly_ministers = {
 		}
 		modifier = {
 			monthly_fervor_increase = 0.5
+			missionary_maintenance_cost = -0.2
 		}
 	}
 	penalties = {

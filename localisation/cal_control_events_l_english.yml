@@ -1,0 +1,13 @@
+﻿l_english:
+ cal_control.1.t: "Secularist province"
+ cal_control.1.d: "Province is automatically converted to atheism."
+ cal_control.1.a: "Convert"
+ cal_control.2.t: "Caliph not Muslim"
+ cal_control.2.d: "Country has the Calipahte, but it is not Muslim"
+ cal_control.2.a: "Remove Caliphate"
+ cal_control.3.t: "Atheits republic not atheist"
+ cal_control.3.d: "Country has Reform Atheist republic, but is not in the Irreligious religion group"
+ cal_control.3.a: "Remove the reform"
+ cal_control.4.t: "Caliphate not Muslim"
+ cal_control.4.d: "Country has a Caliphate government reform, but is not in the Muslim religion group"
+ cal_control.4.a: "Remove the reform"

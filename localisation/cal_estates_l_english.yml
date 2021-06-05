@@ -19,3 +19,6 @@
  estate_scholars_enforced_no_faith_desc: "It is self-evident that [Root.GetReligionNoun] is the one true faith. There shall be no compromising our beliefs for those who heed the words of heretics and heathens!"
  scholars_loyalty_modifier: "Scholars loyalty"
  scholars_influence_modifier: "Scholars influence"
+ EST_UNIVERSITIES: "Built univerities"
+ EST_INNOVATION: "Innovativeness"
+ EST_TECH_DIFFERENCE: "Technologically advanced"

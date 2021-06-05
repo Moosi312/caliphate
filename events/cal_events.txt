@@ -97,7 +97,7 @@ country_event = {#unify islam
 			}
 			change_government_to_monarchy = yes
 		}
-		add_government_reform = cal_caliphate_reform
+		add_government_reform = cal_religous_state_reform
 
 		add_country_modifier = {
 			name = cal_islamic_state
@@ -145,5 +145,186 @@ country_event = {#unify islam
 				modifier = cal_protector_opinion
 			}
 		}
+	}
+}
+
+country_event = {#feminism
+	id = cal_flavor.6
+	title = cal_flavor.6.t
+	desc = cal_flavor.6.d
+	picture = HAJJ_eventPicture
+
+	trigger = {
+		has_reform = cal_atheist_republic_reform
+		NOT = {
+			OR = {
+				has_country_modifier = cal_feminism
+				has_country_modifier = cal_patriarchy
+			}
+		}
+		stability = 0
+	}
+
+	mean_time_to_happen = {
+		months = 500
+	
+		modifier = {
+			factor = 0.8
+			stability = 1
+		}
+		
+		modifier = {
+			factor = 0.8
+			stability = 2
+		}
+		
+		modifier = {
+			factor = 0.8
+			stability = 3
+		}
+
+		modifier = {
+			factor = 0.1
+			is_female = yes
+		}
+	}
+	
+
+	major = yes
+
+	option = {#feminism
+		name = cal_flavor.6.a
+		add_country_modifier = {
+			name = cal_feminism
+			duration = -1
+		}
+		add_stability = -3
+		add_adm_power = -100
+	}
+
+	option = {#patriarchy
+		name = cal_flavor.6.b
+		add_country_modifier = {
+			name = cal_patriarchy
+			duration = -1
+		}
+		add_stability = 1
+	}
+}
+
+country_event = {#genocide repercussions
+	id = cal_flavor.7
+	title = cal_flavor.7.t
+	desc = cal_flavor.7.d
+	picture = HAJJ_eventPicture
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {#accept them
+		name = cal_flavor.7.a
+		add_country_modifier = {
+			name = cal_genocide_accepted
+			duration = -1
+		}
+		add_stability = -1
+		add_adm_power = -100
+	}
+	option = {#deny them
+		name = cal_flavor.7.b
+		add_country_modifier = {
+			name = cal_genocide_denied
+			duration = -1
+		}
+		add_stability = 1
+		add_dip_power = -100
+	}
+	option = { #genocide them again to show dominance
+		name = cal_flavor.7.c
+		highlight = yes
+		trigger = {
+			ruler_has_personality = cruel_personality
+			NOT = { primary_culture = event_target:genocide_province }
+		}
+		every_owned_province = {
+			limit = {
+				culture = event_target:genocide_province
+			}
+			add_province_modifier = {
+				name = cal_genocide_province
+				duration = 7300
+			}
+			add_base_manpower = -5
+			add_base_tax = -5
+			add_base_production = -5
+		}
+		add_mil_power = -100
+	}
+}
+
+country_event = {#genocide forgotten
+	id = cal_flavor.8
+	title = cal_flavor.8.t
+	desc = cal_flavor.8.d
+	picture = HAJJ_eventPicture
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {#alright then
+		name = cal_flavor.8.a
+		add_stability = 1
+	}
+}
+
+country_event = {#genocide repercussions, armenians
+	id = cal_flavor.9
+	title = cal_flavor.9.t
+	desc = cal_flavor.9.d
+	picture = HAJJ_eventPicture
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {#accept them
+		name = cal_flavor.9.a
+		add_country_modifier = {
+			name = cal_genocide_accepted
+			duration = -1
+		}
+		add_stability = -1
+		add_adm_power = -100
+	}
+	option = {#deny them
+		name = cal_flavor.9.b
+		add_country_modifier = {
+			name = cal_genocide_denied
+			duration = -1
+		}
+		add_stability = 1
+		add_dip_power = -100
+	}
+	option = { #genocide them again to show dominance
+		name = cal_flavor.9.c
+		highlight = yes
+		trigger = {
+			ruler_has_personality = cruel_personality
+		}
+		every_owned_province = {
+			limit = {
+				culture = armenian
+			}
+			add_province_modifier = {
+				name = cal_genocide_province
+				duration = 7300
+			}
+			add_base_manpower = -5
+			add_base_tax = -5
+			add_base_production = -5
+		}
+		add_mil_power = -100
 	}
 }

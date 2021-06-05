@@ -2,6 +2,9 @@ country_decisions = {
 	cal_atheism = {
 		major = yes
 		potential = {
+			ai = no
+		}
+		allow = {
 			always = yes
 		}
 		effect = {
@@ -11,6 +14,9 @@ country_decisions = {
 	cal_secularism = {
 		major = yes
 		potential = {
+			ai = no
+		}
+		allow = {
 			always = yes
 		}
 		effect = {

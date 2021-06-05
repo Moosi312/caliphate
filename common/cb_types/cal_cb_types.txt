@@ -114,7 +114,7 @@ cb_religous_state_jihad = {
 		has_global_flag = cal_caliphate_fixed
 		has_reform = cal_religous_state_reform
 		religion_group = muslim
-		NOT = { religion = FROM }
+		NOT = { religion_group = FROM }
 		NOT = { truce_with = FROM }
 	}
 

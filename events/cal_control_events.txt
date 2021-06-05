@@ -1,0 +1,81 @@
+namespace = cal_control
+
+province_event = {
+	id = cal_control.1
+	title = cal_control.1.t
+	desc = cal_control.1.d
+
+	hidden = yes
+
+	trigger = {
+		religion = secularism
+	}
+
+	option = {
+		name = cal_control.1.a
+		change_religion = atheism
+	}
+}
+
+country_event = {
+	id = cal_control.2
+	title = cal_control.2.t
+	desc = cal_control.2.d
+
+	trigger = {
+		is_caliph = yes
+		NOT = {
+			religion_group = muslim
+		}
+	}
+
+	option = {
+		name = cal_control.2.a
+		remove_country_modifier = cal_caliphate
+		remove_country_modifier = cal_caliphate_sunni
+		remove_country_modifier = cal_caliphate_shia
+		remove_country_modifier = cal_caliphate_ibadi
+	}
+}
+
+country_event = {
+	id = cal_control.3
+	title = cal_control.3.t
+	desc = cal_control.3.d
+
+	trigger = {
+		has_reform = cal_atheist_republic_reform
+		NOT = {
+			religion_group = irreligious
+		}
+	}
+
+	option = {
+		name = cal_control.3.a
+		remove_government_reform = cal_atheist_republic_reform
+	}
+}
+
+
+country_event = {
+	id = cal_control.4
+	title = cal_control.4.t
+	desc = cal_control.4.d
+
+	trigger = {
+		OR = {
+			has_reform = cal_religous_state_reform
+			has_reform = cal_caliphate_reform
+		}
+		NOT = {
+			religion_group = muslim
+		}
+	}
+
+	option = {
+		name = cal_control.4.a
+		remove_government_reform = cal_religous_state_reform
+		remove_government_reform = cal_caliphate_reform
+		restore_country_name = yes
+	}
+}

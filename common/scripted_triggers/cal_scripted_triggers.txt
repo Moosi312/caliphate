@@ -21,12 +21,13 @@
 #GENERAL TRIGGERS
 is_caliph = {
 	custom_trigger_tooltip = {
-		tooltip = cal_is_caliph
+		tooltip = cal_is_caliph_tooltip
 		OR = {
 			has_country_modifier = cal_caliphate_sunni
 			has_country_modifier = cal_caliphate_shia
 			has_country_modifier = cal_caliphate_ibadi
 			has_country_modifier = cal_caliphate
+			has_country_modifier = cal_caliphate_transcended
 		}
 	}
 }

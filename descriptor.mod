@@ -1,4 +1,4 @@
-version="0.0.1"
+version="0.2.1"
 tags={
 	"Events"
 	"Expansion"
@@ -6,4 +6,5 @@ tags={
 	"Missions And Decisions"
 }
 name="Caliphate"
-supported_version="1.30.4"
+supported_version="1.31.3"
+picture="thumbnail.png"

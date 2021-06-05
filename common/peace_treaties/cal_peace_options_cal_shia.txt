@@ -34,13 +34,13 @@ cal_take_caliphate_shia = {
 	requires_is_allowed = no # If set to "yes", treaty will only be visible when explicitly allowed by casus belli. If not, it will be available but cost diplomatic power.
 	
 	is_visible = { # Defaults to equivalent of "always = yes"
-		religion = shia
+		religion = shiite
 		FROM = {
 			has_country_modifier = cal_caliphate_shia
 		}
 	}
 	is_allowed = { # Defaults to equivalent of "always = yes"
-		religion = shia
+		religion = shiite
 		FROM = {
 			has_country_modifier = cal_caliphate_shia
 		}
@@ -62,9 +62,9 @@ cal_take_caliphate_shia = {
 		}
 		add_prestige = 50
 		cal_add_opinion_modifiers_caliphate = yes
-		every_country = {
-			country_event = { cal_flavor.2 }
-		}
+		# every_country = {
+		# 	country_event = cal_flavor.2
+		# }
 	}
 	ai_weight = { # Defaults to always evaluate to 0
 		export_to_variable = {

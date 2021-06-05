@@ -5,4 +5,11 @@ spriteTypes = {
   noOfFrames = 3
   loadType = "INGAME"
  }
+ 
+ spriteType = {
+    name = "GFX_disaster_cal_illegitimate_caliph_TUR"
+    texturefile = "gfx//interface//disasters//cal_illegitimate_caliph.dds"
+    noOfFrames = 3
+    loadType = "INGAME"
+   }
 }

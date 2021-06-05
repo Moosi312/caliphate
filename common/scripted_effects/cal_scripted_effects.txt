@@ -1,45 +1,45 @@
 #Caliphate scripted effects:
 
 cal_add_opinion_modifiers_caliphate = {
-	every_country = {
-		limit = {
-			religion_group = muslim
-			NOT = { is_rival = ROOT }
-			NOT = { vassal_of = ROOT }
-		}
-		reverse_add_opinion = {
-		    who = ROOT
-		    modifier = cal_calipahte_muslim_mod
-		}
-	}
-	every_country = {
-		limit = {
-			is_rival = ROOT
-		}
-		reverse_add_opinion = {
-		    who = ROOT
-		    modifier = cal_calipahte_rival_mod
-		}
-	}
-	every_country = {
-		limit = {
-			vassal_of = ROOT
-			religion_group = muslim
-		}
-		reverse_add_opinion = {
-		    who = ROOT
-		    modifier = cal_calipahte_vassal_mod
-		}
-	}
-	every_country = {
-		limit = {
-			NOT = { religion_group = muslim }
-			NOT = { is_rival = ROOT }
-			NOT = { vassal_of = ROOT }
-		}
-		reverse_add_opinion = {
-		    who = ROOT
-		    modifier = cal_calipahte_heretic_mod
-		}
-	}
+	# every_country = {
+	# 	limit = {
+	# 		religion_group = muslim
+	# 		NOT = { is_rival = ROOT }
+	# 		NOT = { vassal_of = ROOT }
+	# 	}
+	# 	reverse_add_opinion = {
+	# 	    who = ROOT
+	# 	    modifier = cal_calipahte_muslim_mod
+	# 	}
+	# }
+	# every_country = {
+	# 	limit = {
+	# 		is_rival = ROOT
+	# 	}
+	# 	reverse_add_opinion = {
+	# 	    who = ROOT
+	# 	    modifier = cal_calipahte_rival_mod
+	# 	}
+	# }
+	# every_country = {
+	# 	limit = {
+	# 		vassal_of = ROOT
+	# 		religion_group = muslim
+	# 	}
+	# 	reverse_add_opinion = {
+	# 	    who = ROOT
+	# 	    modifier = cal_calipahte_vassal_mod
+	# 	}
+	# }
+	# every_country = {
+	# 	limit = {
+	# 		NOT = { religion_group = muslim }
+	# 		NOT = { is_rival = ROOT }
+	# 		NOT = { vassal_of = ROOT }
+	# 	}
+	# 	reverse_add_opinion = {
+	# 	    who = ROOT
+	# 	    modifier = cal_calipahte_heretic_mod
+	# 	}
+	# }
 }

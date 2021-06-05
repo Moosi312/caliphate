@@ -9,7 +9,7 @@ estate_church_hire_advisor = {
 		}
 	}
 	selection_weight = {
-		factor = 1
+		factor = 10
 	}
 	task_requirements = {
 		employed_advisor = {
@@ -40,7 +40,7 @@ estate_church_fire_advisor = {
 		}
 	}
 	selection_weight = {
-		factor = 1
+		factor = 10
 		modifier = {
 			factor = 0.5
 			always = yes
@@ -121,7 +121,7 @@ estate_church_convert_province_x = {
 		}
 	}
 	selection_weight = {
-		factor = 1
+		factor = 10
 		modifier = {
 			factor = 1.5
 			NOT = { religious_unity = 0.85 }
@@ -277,7 +277,7 @@ estate_church_reduce_war_exhaustion = {
 		NOT = { has_country_modifier = national_recovery }
 	}
 	selection_weight = {
-		factor = 2
+		factor = 20
 		modifier = {
 			factor = 1.5
 			war_exhaustion = 7.5
@@ -319,7 +319,7 @@ estate_church_recover_stability = {
 		NOT = { stability = 0 }
 	}
 	selection_weight = {
-		factor = 2
+		factor = 20
 		modifier = {
 			factor = 1.5
 			NOT = { stability = -1 }
@@ -352,7 +352,7 @@ estate_church_increase_stability = {
 		stability = 1
 	}
 	selection_weight = {
-		factor = 1
+		factor = 10
 	}
 	fail_if = {
 		NOT = { stability = 0 }
@@ -383,7 +383,7 @@ estate_church_reduce_overextension = {
 		overextension_percentage = 0.50
 	}
 	selection_weight = {
-		factor = 2
+		factor = 20
 		modifier = {
 			factor = 1.5
 			overextension_percentage = 0.75
@@ -425,7 +425,7 @@ estate_church_restore_devotion = {
 		government = theocracy
 	}
 	selection_weight = {
-		factor = 2
+		factor = 20
 		modifier = {
 			factor = 1.5
 			NOT = { legitimacy_equivalent = 50 }
@@ -506,7 +506,7 @@ estate_church_root_out_heresy = {
 		}
 	}
 	selection_weight = {
-		factor = 2
+		factor = 20
 		modifier = {
 			factor = 2
 			has_idea_group = religious_ideas
@@ -640,7 +640,7 @@ estate_church_relations_with_pope = {
 		NOT = { has_country_modifier = solidified_papal_relations_modifier }
 	}
 	selection_weight = {
-		factor = 2.5
+		factor = 25
 	}
 	fail_if = {
 		OR = {
@@ -682,116 +682,6 @@ estate_church_relations_with_pope = {
     }
 }
 
-#Restore the Pope
-estate_church_restore_the_holy_see = {
-	can_select = {
-		religion = catholic
-		normal_or_historical_nations = yes
-		NOT = { has_country_modifier = restored_holy_see_mission }
-		monthly_income = 30
-		NOT = { owns_or_non_sovereign_subject_of = 118 }
-		NOT = { 118 = { owned_by = PAP } }
-		118 = {
-			range = ROOT
-		}
-		is_excommunicated = no
-		capital_scope = {
-			continent = europe
-		}
-		NOT = { war_with = PAP }
-		PAP = { is_subject = no }
-	}
-	selection_weight = {
-		factor = 3
-		modifier = {
-			factor = 2
-			is_defender_of_faith = yes
-		}
-	}
-	fail_if = {
-		OR = {
-			PAP = { is_subject = yes }
-			war_with = PAP
-			is_excommunicated = yes
-		}
-	}
-	immediate_effect = {
-		if = {
-			limit = {
-				NOT = { is_claim = 118 }
-			}
-			add_claim = 118
-		}
-	}
-	invalid_trigger = {
-		OR = {
-			NOT = { has_estate = estate_church }
-			NOT = { religion = catholic }
-		}
-	}
-	on_invalid = {
-		if = {
-			limit = {
-				is_claim = 118
-				NOT = { is_permanent_claim = 118 }
-			}
-			remove_claim = 118
-		}
-	}
-	provinces_to_highlight = {
-		province_id = 118
-	}
-	task_requirements = {
-		OR = {
-			owns = 118
-			AND = {
-				alliance_with = PAP
-				PAP = { owns = 118 }
-			}
-		}
-	}
-	task_completed_effect = {
-		add_estate_loyalty = {
-			estate = estate_church
-			loyalty = 10
-		}
-		if = {
-			limit = {
-				owns = 118
-			}
-			118 = { cede_province = PAP }
-		}
-		add_country_modifier = {
-			name = restored_holy_see_mission
-			duration = 5475
-		}
-		reverse_add_opinion = { who = PAP modifier = opinion_restored_holy_see }
-		hidden_effect = {
-			if = {
-				limit = {
-					NOT = { is_permanent_claim = 118 }
-				}
-				remove_claim = 118
-			}
-		}
-	}
-    failing_effect = {
-        add_estate_loyalty_modifier = {
-            estate = estate_church
-			desc = EST_VAL_AGENDA_DENIED
-			loyalty = -5
-			duration = 7300
-        }
-		if = {
-			limit = {
-				is_claim = 118
-				NOT = { is_permanent_claim = 118 }
-			}
-			remove_claim = 118
-		}
-    }
-}
-
 
 #Crush Revolts (heretics)
 estate_church_crush_religious_revolts = {
@@ -804,7 +694,7 @@ estate_church_crush_religious_revolts = {
 
 	}
 	selection_weight = {
-		factor = 2
+		factor = 20
 		modifier = {
 			factor = 2
 			num_of_rebel_controlled_provinces = 3
@@ -877,7 +767,7 @@ estate_church_protect_brethren = {
 		}
 	}
 	selection_weight = {
-		factor = 2
+		factor = 20
 		modifier = {
 			factor = 2
 			has_idea_group = religious_ideas
@@ -1075,7 +965,7 @@ estate_church_propagate_religion = {
 		NOT = { has_country_modifier = missionary_zeal }
 	}
 	selection_weight = {
-		factor = 2.5
+		factor = 25
 	}
 	pre_effect = {
 		random_active_trade_node = {
@@ -1190,7 +1080,7 @@ estate_church_relations_with_dotf = {
 		}
 	}
 	selection_weight = {
-		factor = 2.5
+		factor = 25
 		modifier = {
 			factor = 2
 			has_idea_group = religious_ideas

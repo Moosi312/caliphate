@@ -1,0 +1,82 @@
+ANA_ideas = {
+	
+	free = yes
+	
+	trigger = {
+		tag = ANA
+	}
+	start = {
+		land_morale = 0.1
+		tolerance_heathen = 2
+	}
+	
+	bonus = {
+		administrative_efficiency = 0.05
+	}
+	
+	ana_modern_military = {
+		discipline = 0.05
+	}
+	ana_urbanization = {
+		production_efficiency = 0.1
+	}
+	ana_laicite = {
+		monthly_fervor_increase = 3
+		harmonization_speed = 0.5
+		yearly_harmony = 1
+	}
+	ana_economic_relations = {
+		global_trade_power = 0.1
+	}
+	ana_turkification = {
+		culture_conversion_cost = -0.25
+	}
+	ana_military_oversight = {
+		country_military_power = 1
+	}
+	ana_state_sponsored_universities = {
+		technology_cost = -0.1
+	}
+}
+
+ISS_ideas = {
+	
+	free = yes
+	
+	trigger = {
+		tag = ISS
+	}
+	start = {
+		global_missionary_strength = 0.05
+		tolerance_own = 4
+	}
+	
+	bonus = {
+		administrative_efficiency = 0.05
+	}
+	
+	iss_global_jihad = {
+		discipline = 0.05
+		land_morale = 0.1
+	}
+	iss_jizya = {
+		global_tax_modifier = 0.1
+	}
+	iss_muslim_values = {
+		global_unrest = -2
+		church_loyalty_modifier = 0.1
+	}
+	iss_harem = {
+		heir_chance = 1
+		female_advisor_chance = 0.1
+	}
+	iss_one_faith_one_people = {
+		culture_conversion_cost = -0.25
+	}
+	iss_religious_oversight = {
+		country_admin_power = 1
+	}
+	iss_mulsim_golden_age_revisited = {
+		idea_cost = -0.1
+	}
+}

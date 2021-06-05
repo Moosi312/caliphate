@@ -4,10 +4,6 @@
 
 namespace = cal_disaster
 
-######################
-##  Message events  ##
-######################
-
 country_event = {#start of the disaster
 	id = cal_disaster.1
 	title = cal_disaster.1.t
@@ -42,6 +38,7 @@ country_event = {#start of the disaster
 			}
 		}
 
+		restore_country_name = yes
 	}
 
 	option = { #caliphate
@@ -75,12 +72,6 @@ country_event = {#start of the disaster
 				}
 				clr_province_flag = cal_disaster_spawn_rebels_here
 			}
-		}
-
-		add_disaster_modifier = {
-			name = "cal_disaster_harsh"
-			duration = -1
-			disaster = cal_illegitimate_caliph
 		}
 	}
 
@@ -124,32 +115,753 @@ country_event = {#start of the disaster
 			}
 			change_government_to_republic = yes
 		}
-		add_government_reform = cal_atheist_republic_reform
+		add_government_reform = military_dictatorship_reform
 
+		kill_ruler = yes
+	}
+}
 
-		if = {
-			limit = {
-				has_country_modifier = cal_caliphate
-			}
-			remove_country_modifier = cal_caliphate
+country_event = {#generic genocide
+	id = cal_disaster.2
+	title = cal_disaster.2.t
+	desc = cal_disaster.2.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_owned_province = {
+			has_owner_accepted_culture = no
+			# OR = {
+			# 	unrest = 1
+			# 	nationalism = 1
+			# }
 		}
-		if = {
-			limit = {
-				has_country_modifier = cal_caliphate_sunni
+		NOT = { has_country_flag = cal_genocide_event_happened }
+		NOT = {
+			tag = TUR
+			any_owned_province = {
+				culture = armenian
+				OR = {
+					unrest = 1
+					nationalism = 1
+				}
 			}
-			remove_country_modifier = cal_caliphate_sunni
 		}
-		if = {
-			limit = {
-				has_country_modifier = cal_caliphate_shia
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = cal_genocide_event_happened
+			random_owned_province = {
+				limit = {
+					has_owner_accepted_culture = no
+					# OR = {
+					# 	unrest = 1
+					# 	nationalism = 1
+					# }
+				}
+				save_event_target_as = genocide_province
 			}
-			remove_country_modifier = cal_caliphate_shia
 		}
+	}
+	option = { # commmit genocide
+		name = cal_disaster.2.a
 		if = {
 			limit = {
-				has_country_modifier = cal_caliphate_ibadi
+				development_in_provinces = {
+					value = 500
+					owned_by = ROOT
+					culture = event_target:genocide_province
+				}
 			}
-			remove_country_modifier = cal_caliphate_ibadi
+			add_years_of_income = 5
+			add_yearly_manpower = 5
+		}
+		else_if = {
+			limit = {
+				development_in_provinces = {
+					value = 300
+					owned_by = ROOT
+					culture = event_target:genocide_province
+				}
+			}
+			add_years_of_income = 3
+			add_yearly_manpower = 3
+		}
+		else_if = {
+			limit = {
+				development_in_provinces = {
+					value = 100
+					owned_by = ROOT
+					culture = event_target:genocide_province
+				}
+			}
+			add_years_of_income = 2
+			add_yearly_manpower = 2
+		}
+		else = {
+			add_years_of_income = 1
+			add_yearly_manpower = 1
+		}
+		add_stability = 1
+		add_war_exhaustion = -3
+		custom_tooltip = cal_warning_genocide
+		every_owned_province = {
+			limit = {
+				culture = event_target:genocide_province
+			}
+			add_province_modifier = {
+				name = cal_genocide_province
+				duration = 7300
+			}
+			random_list = {
+				1 = {
+					add_base_manpower = -3
+				}
+				1 = {
+					add_base_manpower = -2
+				}
+				1 = {
+					add_base_manpower = -1
+				}
+			}
+			random_list = {
+				1 = {
+					add_base_tax = -3
+				}
+				1 = {
+					add_base_tax = -2
+				}
+				1 = {
+					add_base_tax = -1
+				}
+			}
+			random_list = {
+				1 = {
+					add_base_production = -3
+				}
+				1 = {
+					add_base_production = -2
+				}
+				1 = {
+					add_base_production = -1
+				}
+			}
+		}
+		hidden_effect = { # spawn repurcussion event in 30 - 50 years
+			random_list = {
+				1 = {
+					country_event = {
+						id = cal_flavor.7
+						days = 10800
+						random = 7300
+					}
+					modifier = {
+						factor = 2
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 10
+							owned_by = ROOT
+							culture = event_target:genocide_province
+						}
+					}
+					modifier = {
+						factor = 2
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 20
+							owned_by = ROOT
+							culture = event_target:genocide_province
+						}
+					}
+					modifier = {
+						factor = 2
+						development_in_provinces = {
+							value = 100
+							owned_by = ROOT
+							culture = event_target:genocide_province
+						}
+					}
+					modifier = {
+						factor = 3
+						development_in_provinces = {
+							value = 300
+							owned_by = ROOT
+							culture = event_target:genocide_province
+						}
+					}
+				}
+				1 = {
+					country_event = {
+						id = cal_flavor.8
+						days = 10800
+						random = 7300
+					}
+				}
+			}
+		}
+	}
+
+	option = { # leave them be
+		name = cal_disaster.2.b
+		add_stability = -1
+		add_war_exhaustion = 5
+	}
+}
+
+country_event = {#armenian genocide
+	id = cal_disaster.3
+	title = cal_disaster.3.t
+	desc = cal_disaster.3.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = TUR
+		any_owned_province = {
+			culture = armenian
+			OR = {
+				unrest = 1
+				nationalism = 1
+			}
+		}
+		NOT = { has_country_flag = cal_genocide_event_happened }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = cal_genocide_event_happened
+			random_owned_province = {
+				limit = {
+					culture = armenian
+					OR = {
+						unrest = 1
+						nationalism = 1
+					}
+				}
+				save_event_target_as = genocide_province
+			}
+		}
+	}
+	option = { # commmit genocide
+		name = cal_disaster.3.a
+		if = {
+			limit = {
+				development_in_provinces = {
+					value = 500
+					owned_by = ROOT
+					culture = armenian
+				}
+			}
+			add_years_of_income = 5
+			add_yearly_manpower = 5
+		}
+		else_if = {
+			limit = {
+				development_in_provinces = {
+					value = 300
+					owned_by = ROOT
+					culture = armenian
+				}
+			}
+			add_years_of_income = 3
+			add_yearly_manpower = 3
+		}
+		else_if = {
+			limit = {
+				development_in_provinces = {
+					value = 100
+					owned_by = ROOT
+					culture = armenian
+				}
+			}
+			add_years_of_income = 2
+			add_yearly_manpower = 2
+		}
+		else = {
+			add_years_of_income = 1
+			add_yearly_manpower = 1
+		}
+		add_stability = 1
+		add_war_exhaustion = -3
+		custom_tooltip = cal_warning_genocide
+		every_owned_province = {
+			limit = {
+				culture = armenian
+			}
+			add_province_modifier = {
+				name = cal_genocide_province
+				duration = 7300
+			}
+			random_list = {
+				1 = {
+					add_base_manpower = -3
+				}
+				1 = {
+					add_base_manpower = -2
+				}
+				1 = {
+					add_base_manpower = -1
+				}
+			}
+			random_list = {
+				1 = {
+					add_base_tax = -3
+				}
+				1 = {
+					add_base_tax = -2
+				}
+				1 = {
+					add_base_tax = -1
+				}
+			}
+			random_list = {
+				1 = {
+					add_base_production = -3
+				}
+				1 = {
+					add_base_production = -2
+				}
+				1 = {
+					add_base_production = -1
+				}
+			}
+		}
+		hidden_effect = { # spawn repurcussion event in 30 - 50 years
+			random_list = {
+				1 = {
+					country_event = {
+						id = cal_flavor.9
+						days = 10800
+						random = 7300
+					}
+					modifier = {
+						factor = 2
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 10
+							owned_by = ROOT
+							culture = armenian
+						}
+					}
+					modifier = {
+						factor = 2
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 20
+							owned_by = ROOT
+							culture = armenian
+						}
+					}
+					modifier = {
+						factor = 2
+						development_in_provinces = {
+							value = 100
+							owned_by = ROOT
+							culture = armenian
+						}
+					}
+					modifier = {
+						factor = 3
+						development_in_provinces = {
+							value = 300
+							owned_by = ROOT
+							culture = armenian
+						}
+					}
+				}
+				1 = {
+					country_event = {
+						id = cal_flavor.8
+						days = 10800
+						random = 7300
+					}
+				}
+			}
+		}
+	}
+
+	option = { # leave them be
+		name = cal_disaster.3.b
+		add_stability = -1
+		add_war_exhaustion = 5
+	}
+}
+
+country_event = {#purge dislayal officials
+	id = cal_disaster.4
+	title = cal_disaster.4.t
+	desc = cal_disaster.4.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	is_triggered_only = yes
+
+	option = {#purge them
+		name = cal_disaster.4.a
+		random_owned_province = {
+			limit = {
+				is_capital = no
+			}
+			spawn_rebels = {
+				size = 2
+				type = pretender_rebels
+			}
+		}
+	}
+	option = {#pardon them
+		name = cal_disaster.4.b
+		add_legitimacy = -25
+		add_republican_tradition = -20
+		add_stability = -1
+	}
+}
+
+country_event = {#support in province
+	id = cal_disaster.5
+	title = cal_disaster.5.t
+	desc = cal_disaster.5.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_owned_province = {
+			is_overseas = no
+			NOT = { has_province_modifier = wotr_local_support }
+			NOT = { has_province_modifier = disgruntled_nobles }
+		}
+	}
+
+	option = {#this is most welcomed
+		name = cal_disaster.5.a
+		random_owned_province = {
+			limit = {
+				is_overseas = no
+				NOT = { has_province_modifier = wotr_local_support }
+				NOT = { has_province_modifier = disgruntled_nobles }
+			}
+			add_province_modifier = {
+				name = wotr_local_support
+				duration = 3650
+			}
+			every_neighbor_province = {
+				limit = {	
+					owned_by = ROOT
+					NOT = { has_province_modifier = wotr_local_support }
+					NOT = { has_province_modifier = disgruntled_nobles }
+				}
+				add_province_modifier = {
+					name = wotr_local_support
+					duration = 3650
+				}
+			}
+		}
+	}
+}
+
+country_event = {#bureaucrats disgruntled
+	id = cal_disaster.6
+	title = cal_disaster.6.t
+	desc = cal_disaster.6.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	is_triggered_only = yes
+
+	option = {#these gifts should show our gratitude
+		name = cal_disaster.6.a
+		add_years_of_income = -0.25
+	}
+
+	option = {#it is their duty
+		name = cal_disaster.6.b
+		random_owned_province = {
+			limit = {
+				has_province_modifier = wotr_local_support
+			}
+			remove_province_modifier = wotr_local_support
+			add_province_modifier = {
+				name = disgruntled_nobles
+				duration = 1825
+			}
+		}
+	}
+}
+
+country_event = {#desertions
+	id = cal_disaster.7
+	title = cal_disaster.7.t
+	desc = cal_disaster.7.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	trigger = { #otherwise option A is too easy
+		manpower_percentage = 0.1
+	}
+
+	is_triggered_only = yes
+
+	option = {#there is nothing we can do
+		name = cal_disaster.7.a
+		add_yearly_manpower = -2.5
+		add_legitimacy = -5
+	}
+
+	option = {#increase their pay
+		name = cal_disaster.7.b
+		add_country_modifier = {
+			name = cal_concessions_to_soldiers
+			duration = 1825
+		}
+	}
+	option = {#let them take from the peasants
+		name = cal_disaster.7.c
+		add_country_modifier = {
+			name = plundering_soldiers
+			duration = 1825
+		}
+	}
+}
+
+country_event = {#large revolt
+	id = cal_disaster.8
+	title = cal_disaster.8.t
+	desc = cal_disaster.8.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	trigger = {
+		any_owned_province = {
+			unrest = 3
+			is_capital = no
+			NOT = { nationalism = 1 }
+			NOT = { controlled_by = REB }
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {#send money to help local authorities
+		name = cal_disaster.8.a
+		add_years_of_income = -0.75
+		add_dip_power = -50
+	}
+
+	option = {#crush the rebels
+		name = cal_disaster.8.b
+		random_owned_province = {
+			limit = {
+				unrest = 3
+				is_capital = no
+				NOT = { nationalism = 1 }
+				NOT = { controlled_by = REB }
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 2
+			}			
+			add_province_modifier = {
+				name = rebel_refugees
+				duration = 3650
+			}
+		}
+	}
+}
+
+country_event = {#seperatist movements
+	id = cal_disaster.9
+	title = cal_disaster.9.t
+	desc = cal_disaster.9.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	trigger = {
+		any_owned_province = {
+			#nationalism = 1
+			is_capital = no
+			NOT = { controlled_by = REB }
+			NOT = { culture = greek }
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {#send money to help local authorities
+		name = cal_disaster.9.a
+		add_years_of_income = -1
+		add_dip_power = -100
+		add_adm_power = -100
+	}
+
+	option = {#crush the rebels
+		name = cal_disaster.9.b
+		random_owned_province = {
+			limit = {
+				#nationalism = 1
+				is_capital = no
+				NOT = { controlled_by = REB }
+				NOT = { culture = greek }
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 2
+			}
+			every_province = {
+				limit = {
+					culture = PREV
+					owned_by = ROOT
+				}
+				add_nationalism = 10
+			}
+		}
+	}
+}
+
+country_event = {#greek independence
+	id = cal_disaster.10
+	title = cal_disaster.10.t
+	desc = cal_disaster.10.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	trigger = {
+		capital_scope = {
+			NOT = {
+				OR = {
+					area = macedonia_area
+					area = morea_area
+					area = northern_greece_area
+				}
+			}
+		}
+		NOT = {
+			OR = {
+				primary_culture = greek
+				primary_culture = pontic_greek
+				primary_culture = goths
+			}
+		}
+		num_of_owned_provinces_with = {
+			value = 5
+			is_capital = no
+			NOT = { controlled_by = REB }
+			OR = {
+				culture = greek
+				is_core = BYZ
+				is_core = GRE
+			}
+			OR = {
+				area = macedonia_area
+				area = morea_area
+				area = northern_greece_area
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						culture = greek
+						is_core = BYZ
+						is_core = GRE
+						area = macedonia_area
+						area = morea_area
+						area = northern_greece_area
+						area = thrace_area
+					}
+				}
+				add_core = GRE
+				if = {
+					limit = {
+						is_core = BYZ
+						NOT = { exists = BYZ }
+					}
+					remove_core = BYZ
+				}
+			}
+		}
+	}
+
+	option = {#make greece a march
+		name = cal_disaster.10.a
+		add_years_of_income = 0.5
+		add_adm_power = 100
+
+		every_owned_province = {
+			limit = {
+				is_capital = no
+				is_core = GRE
+				OR = {
+					area = macedonia_area
+					area = morea_area
+					#area = northern_greece_area
+				}
+			}
+			cede_province = GRE
+			add_core = GRE
+			if = {
+				limit = {
+					NOT = { culture_group = byzantine }
+				}
+				change_culture = greek
+			}
+		}
+		create_march = GRE
+		hidden_effect = {
+			GRE = {
+				change_primary_culture = greek
+				change_religion = orthodox
+				if = {
+					limit = {
+						146 = {
+							owned_by = GRE
+						}
+					}
+					set_capital = 146
+				}
+				capital_scope = {
+					change_religion = orthodox
+					change_culture = greek
+				}
+			}
+		}
+	}
+
+	option = {#Greek war of independence
+		name = cal_disaster.10.b
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				NOT = { controlled_by = REB }
+				is_core = GRE
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+			}			
+			add_province_modifier = {
+				name = rebel_refugees
+				duration = 3650
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				NOT = { controlled_by = REB }
+				NOT = { has_province_modifier = rebel_refugees }
+				is_core = GRE
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+			}			
+			add_province_modifier = {
+				name = rebel_refugees
+				duration = 3650
+			}
+		}
+		every_owned_province = {
+			limit = {
+				is_core = GRE
+			}
+			add_nationalism = 20
 		}
 	}
 }
@@ -166,6 +878,7 @@ country_event = { #order restored
 
 	immediate = {
 		#clear flags
+		set_country_flag = cal_illegitimate_caliph_happened
 	}
 
 	option = { #atheist state victory
@@ -173,11 +886,17 @@ country_event = { #order restored
 		trigger = {
 			has_country_flag = cal_atheist_state
 			NOT = { has_country_modifier = just_lost_to_rebels }
+			OR ={
+				has_country_modifier = cal_caliphate
+				has_country_modifier = cal_caliphate_sunni
+				has_country_modifier = cal_caliphate_shia
+				has_country_modifier = cal_caliphate_ibadi
+			}
 		}
 		if = {
 			limit = { NOT = { government = republic } }
 			change_government_to_republic = yes
-			add_government_reform = cal_atheist_republic_reform
+			add_government_reform = military_dictatorship_reform
 		}
 		add_prestige = 50
 		if = {
@@ -189,12 +908,36 @@ country_event = { #order restored
 			add_stability = 2
 		}
 		else = { add_republican_tradition = 20 }
+
+		hidden_effect = {
+			country_event = {
+				id = cal_disaster.101
+				days = 10
+				random = 40
+			}
+		}
+		remove_country_modifier = cal_caliphate
+		remove_country_modifier = cal_caliphate_sunni
+		remove_country_modifier = cal_caliphate_shia
+		remove_country_modifier = cal_caliphate_ibadi
+
+		add_country_modifier = {
+			name = cal_caliphate_transcended
+			duration = -1
+		}
 	}
 
 	option = { #caliphate victory
+		name = cal_disaster.100.b
 		trigger = {
 			has_country_flag = cal_caliphate_fight
 			NOT = { has_country_modifier = just_lost_to_rebels }
+			OR ={
+				has_country_modifier = cal_caliphate
+				has_country_modifier = cal_caliphate_sunni
+				has_country_modifier = cal_caliphate_shia
+				has_country_modifier = cal_caliphate_ibadi
+			}
 		}
 		if = {
 			limit = { NOT = { government = monarchy }}
@@ -211,25 +954,442 @@ country_event = { #order restored
 			add_stability = 2
 		}
 		else = { add_legitimacy = 20 }
+		override_country_name = THE_CALIPHATE
 	}
 
 	option = { #atheists lost
+		name = cal_disaster.100.c
 		trigger = {
 			has_country_flag = cal_atheist_state
 			has_country_modifier = just_lost_to_rebels
+			OR ={
+				has_country_modifier = cal_caliphate
+				has_country_modifier = cal_caliphate_sunni
+				has_country_modifier = cal_caliphate_shia
+				has_country_modifier = cal_caliphate_ibadi
+			}
 		}
 		if = {
 			limit = { NOT = { government = monarchy }}
 			change_government_to_monarchy = yes
 		}
+		override_country_name = THE_CALIPHATE
 	}
 
 	option = { #caliphate lost
+		name = cal_disaster.100.e
 		trigger = {
 			has_country_flag = cal_caliphate_fight
 			has_country_modifier = just_lost_to_rebels
+			OR ={
+				has_country_modifier = cal_caliphate
+				has_country_modifier = cal_caliphate_sunni
+				has_country_modifier = cal_caliphate_shia
+				has_country_modifier = cal_caliphate_ibadi
+			}
 		}
 		change_government_to_republic = yes
+		add_government_reform = military_dictatorship_reform
+
+		remove_country_modifier = cal_caliphate
+		remove_country_modifier = cal_caliphate_sunni
+		remove_country_modifier = cal_caliphate_shia
+		remove_country_modifier = cal_caliphate_ibadi
+
+		add_country_modifier = {
+			name = cal_caliphate_transcended
+			duration = -1
+		}
+
+		hidden_effect = {
+			country_event = {
+				id = cal_disaster.101
+				days = 10
+				random = 40
+			}
+		}
+	}
+
+	option = { #caliph title taken aways
+		name = cal_disaster.100.f
+		trigger = {
+			NOT = {
+				OR ={
+					has_country_modifier = cal_caliphate
+					has_country_modifier = cal_caliphate_sunni
+					has_country_modifier = cal_caliphate_shia
+					has_country_modifier = cal_caliphate_ibadi
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					stability = 3
+				}
+			}
+			add_stability = 1
+		}
+		else = { add_prestige = 10 }
+	}
+}
+
+country_event = { #choose irreligious religion
+	id = cal_disaster.101
+	title = cal_disaster.101.t
+	desc = cal_disaster.101.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = { #secularism
+		name = cal_disaster.101.a
+
+		change_religion = secularism
+		add_harmonized_religion = sunni
+		add_harmonized_religion = atheism
+
+		change_government_to_republic = yes
 		add_government_reform = cal_atheist_republic_reform
+
+		if = {
+			limit = {
+				tag = TUR
+			}
+			change_tag = ANA
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+	}
+
+	option = { #atheism
+		name = cal_disaster.101.b
+
+		change_religion = atheism
+
+		change_government_to_republic = yes
+		add_government_reform = cal_atheist_republic_reform
+		
+		if = {
+			limit = {
+				tag = TUR
+			}
+			change_tag = ANA
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+	}
+
+	option = { #muslim republic
+		name = cal_disaster.101.c
+
+		change_government_to_republic = yes
+		add_government_reform = merchants_reform
+	}
+}
+
+country_event = {#start of the disaster TUR
+	id = cal_disaster.201
+	title = cal_disaster.201.t
+	desc = cal_disaster.201.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	is_triggered_only = yes
+
+	major = yes
+
+	immediate = {
+		set_country_flag = cal_has_illegimitate_caliph
+		random_owned_province = {
+			limit = {
+				NOT = { has_province_flag = cal_disaster_spawn_rebels_here }
+				NOT = { units_in_province = 1 }
+				is_capital = no
+			}
+			set_province_flag = cal_disaster_spawn_rebels_here
+		}
+		if = {
+			limit = {
+				num_of_cities = 30
+			}
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = cal_disaster_spawn_rebels_here }
+					NOT = { units_in_province = 1 }
+					is_capital = no
+				}
+				set_province_flag = cal_disaster_spawn_rebels_here
+			}
+		}
+
+		restore_country_name = yes
+	}
+
+	option = { #caliphate
+		name = cal_disaster.201.a
+
+		set_country_flag = cal_caliphate_fight
+
+		random_owned_province = {
+			limit = {
+				has_province_flag = cal_disaster_spawn_rebels_here
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				leader = "Mustafa Kemal"
+				leader_dynasty = "Atatürk"
+			}
+			clr_province_flag = cal_disaster_spawn_rebels_here
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					has_province_flag = cal_disaster_spawn_rebels_here
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_province_flag = cal_disaster_spawn_rebels_here
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 2
+				}
+				clr_province_flag = cal_disaster_spawn_rebels_here
+			}
+		}
+	}
+
+	option = { #abandon caliphate, become atheist
+		name = cal_disaster.201.b
+
+		set_country_flag = cal_atheist_state
+
+		random_owned_province = {
+			limit = {
+				has_province_flag = cal_disaster_spawn_rebels_here
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				use_monarch_as_leader = yes
+				size = 3
+			}
+			clr_province_flag = cal_disaster_spawn_rebels_here
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					has_province_flag = cal_disaster_spawn_rebels_here
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_province_flag = cal_disaster_spawn_rebels_here
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 2
+				}
+				clr_province_flag = cal_disaster_spawn_rebels_here
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = { government = republic }
+			}
+			change_government_to_republic = yes
+		}
+		add_government_reform = military_dictatorship_reform
+
+		define_ruler = {
+			name = "Mustafa Kemal Atatürk"
+			ADM = 6
+			DIP = 4
+			MIL = 6
+			fixed = yes
+		}
+		set_ruler_flag = cal_ataturk_flag
+		define_ruler_to_general = {
+			fire = 5
+			shock = 4
+			manuever = 6
+			siege = 4
+		}
+	}
+}
+
+country_event = { #order restored TUR
+	id = cal_disaster.202
+	title = cal_disaster.202.t
+	desc = cal_disaster.202.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	is_triggered_only = yes
+
+	major = yes
+
+	immediate = {
+		#clear flags
+		set_country_flag = cal_illegitimate_caliph_happened
+	}
+
+	option = { #atheist state victory
+		name = cal_disaster.202.a
+		trigger = {
+			has_country_flag = cal_atheist_state
+			NOT = { has_country_modifier = just_lost_to_rebels }
+			OR ={
+				has_country_modifier = cal_caliphate
+				has_country_modifier = cal_caliphate_sunni
+				has_country_modifier = cal_caliphate_shia
+				has_country_modifier = cal_caliphate_ibadi
+			}
+		}
+		if = {
+			limit = { NOT = { government = republic } }
+			change_government_to_republic = yes
+			add_government_reform = military_dictatorship_reform
+		}
+		add_prestige = 50
+		if = {
+			limit = {
+				NOT = {
+					stability = 2
+				}
+			}
+			add_stability = 2
+		}
+		else = { add_republican_tradition = 20 }
+
+		hidden_effect = {
+			country_event = {
+				id = cal_disaster.101
+				days = 10
+				random = 40
+			}
+			
+		}
+		remove_country_modifier = cal_caliphate
+		remove_country_modifier = cal_caliphate_sunni
+		remove_country_modifier = cal_caliphate_shia
+		remove_country_modifier = cal_caliphate_ibadi
+
+		add_country_modifier = {
+			name = cal_caliphate_transcended
+			duration = -1
+		}
+	}
+
+	option = { #caliphate victory
+		name = cal_disaster.202.b
+		trigger = {
+			has_country_flag = cal_caliphate_fight
+			NOT = { has_country_modifier = just_lost_to_rebels }
+			OR ={
+				has_country_modifier = cal_caliphate
+				has_country_modifier = cal_caliphate_sunni
+				has_country_modifier = cal_caliphate_shia
+				has_country_modifier = cal_caliphate_ibadi
+			}
+		}
+		if = {
+			limit = { NOT = { government = monarchy }}
+			change_government_to_monarchy = yes
+		}
+		add_prestige = 50
+		add_absolutism = 10
+		if = {
+			limit = {
+				NOT = {
+					stability = 2
+				}
+			}
+			add_stability = 2
+		}
+		else = { add_legitimacy = 20 }
+		override_country_name = THE_CALIPHATE
+	}
+
+	option = { #atheists lost
+		name = cal_disaster.202.c
+		trigger = {
+			has_country_flag = cal_atheist_state
+			has_country_modifier = just_lost_to_rebels
+			OR ={
+				has_country_modifier = cal_caliphate
+				has_country_modifier = cal_caliphate_sunni
+				has_country_modifier = cal_caliphate_shia
+				has_country_modifier = cal_caliphate_ibadi
+			}
+		}
+		if = {
+			limit = { NOT = { government = monarchy }}
+			change_government_to_monarchy = yes
+		}
+		override_country_name = THE_CALIPHATE
+	}
+
+	option = { #caliphate lost
+		name = cal_disaster.202.e
+		trigger = {
+			has_country_flag = cal_caliphate_fight
+			has_country_modifier = just_lost_to_rebels
+			OR ={
+				has_country_modifier = cal_caliphate
+				has_country_modifier = cal_caliphate_sunni
+				has_country_modifier = cal_caliphate_shia
+				has_country_modifier = cal_caliphate_ibadi
+			}
+		}
+		change_government_to_republic = yes
+		add_government_reform = military_dictatorship_reform
+
+		remove_country_modifier = cal_caliphate
+		remove_country_modifier = cal_caliphate_sunni
+		remove_country_modifier = cal_caliphate_shia
+		remove_country_modifier = cal_caliphate_ibadi
+
+		add_country_modifier = {
+			name = cal_caliphate_transcended
+			duration = -1
+		}
+		hidden_effect = {
+			country_event = {
+				id = cal_disaster.101
+				days = 10
+				random = 40
+			}
+		}
+	}
+
+	option = { #caliph title taken aways
+		name = cal_disaster.202.f
+		trigger = {
+			NOT = {
+				OR ={
+					has_country_modifier = cal_caliphate
+					has_country_modifier = cal_caliphate_sunni
+					has_country_modifier = cal_caliphate_shia
+					has_country_modifier = cal_caliphate_ibadi
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					stability = 3
+				}
+			}
+			add_stability = 1
+		}
+		else = { add_prestige = 10 }
 	}
 }

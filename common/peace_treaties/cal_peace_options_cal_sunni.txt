@@ -62,9 +62,9 @@ cal_take_caliphate_sunni = {
 		}
 		add_prestige = 50
 		cal_add_opinion_modifiers_caliphate = yes
-		every_country = {
-			country_event = { cal_flavor.2 }
-		}
+		# every_country = {
+		# 	country_event = cal_flavor.2
+		# }
 	}
 	ai_weight = { # Defaults to always evaluate to 0
 		export_to_variable = {

@@ -1,7 +1,6 @@
 ﻿l_english:
- 
- irreligious_group:0 "Irreligious"
- secularism:0 "Secularism"
- atheism:0 "Atheism"
- ATHEIST_EXTREMISTS:0 "Atheist extremists"
- ATHEIST_FANATICS:0 "Atheist fanatics"
+ irreligious: "Irreligious"
+ secularism: "Secularism"
+ atheism: "Atheism"
+ ATHEIST_EXTREMISTS: "Atheist extremists"
+ ATHEIST_FANATICS: "Atheist fanatics"

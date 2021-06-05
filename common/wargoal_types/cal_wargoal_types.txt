@@ -267,7 +267,7 @@ superiority_religious_state_jihad = {
 	}
 	
 	defender = {
-		badbbadboy_factor = 0.75
+		badboy_factor = 0.75
 		prestige_factor = 1
 		peace_cost_factor = 1		
 	

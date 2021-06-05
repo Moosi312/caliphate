@@ -46,9 +46,9 @@ country_decisions = {
 			custom_tooltip = cal_caliphate_wars_tt
 
 			cal_add_opinion_modifiers_caliphate = yes
-			every_country = {
-				country_event = { cal_flavor.1 }
-			}
+			# every_country = {
+			# 	country_event = { cal_flavor.1 }
+			# }
 		}
 	}
 
@@ -99,9 +99,9 @@ country_decisions = {
 			custom_tooltip = cal_caliphate_wars_tt
 
 			cal_add_opinion_modifiers_caliphate = yes
-			every_country = {
-				country_event = { cal_flavor.1 }
-			}
+			# every_country = {
+			# 	country_event = cal_flavor.1
+			# }
 		}
 	}
 
@@ -109,7 +109,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			always = no
-			religion = shia
+			religion = shiite
 			NOT = { has_country_modifier = cal_caliphate_shia }
 			NOT = { has_global_flag = cal_caliphate_fixed }
 			all_country = {
@@ -152,9 +152,9 @@ country_decisions = {
 			custom_tooltip = cal_caliphate_wars_tt
 
 			cal_add_opinion_modifiers_caliphate = yes
-			every_country = {
-				country_event = { cal_flavor.1 }
-			}
+			# every_country = {
+			# 	country_event = cal_flavor.1
+			# }
 		}
 	}
 
@@ -205,9 +205,9 @@ country_decisions = {
 			custom_tooltip = cal_caliphate_wars_tt
 
 			cal_add_opinion_modifiers_caliphate = yes
-			every_country = {
-				country_event = { cal_flavor.1 }
-			}
+			# every_country = {
+			# 	country_event = cal_flavor.1
+			# }
 		}
 	}
 }

@@ -10,20 +10,22 @@ cal_caliphate_reform = {
 	valid_for_nation_designer = no
 	valid_for_new_country = no
 	lock_level_when_selected = yes
-	locked_government_type = yes
+	maintain_dynasty = yes
 
 	potential = {
 		OR = {
 			has_reform = cal_caliphate_reform
 			have_had_reform = cal_caliphate_reform
 		}
+		religion_group = muslim
+		is_caliph = yes
 	}
 
 	modifiers = {
 		missionaries = 1
-		global_missionary_strength = 0.01
+		global_missionary_strength = 0.02
 		tolerance_own = 2
-		governing_capacity = 50
+		governing_capacity = 250
 		brahmins_hindu_loyalty_modifier = 0.05
 		church_loyalty_modifier = 0.05
 		max_absolutism = 10
@@ -34,22 +36,26 @@ cal_caliphate_reform = {
 			feudal_theocracy_mechanic
 		}
 	}
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		has_harem = yes
+	}
 	ai = {
-		factor = 0.5 #generic
+		factor = 2 #generic
 	}
 }
 
 cal_religous_state_reform = {
 	icon = "feudal_theocracy"
 
-	legacy_equivalent = cal_religous_state_legacy
+	legacy_equivalent = feudal_theocracy_legacy
 
  	allow_convert = yes
 	allow_normal_conversion = no
 	valid_for_nation_designer = no
 	valid_for_new_country = no
 	lock_level_when_selected = yes
-	locked_government_type = yes
+	maintain_dynasty = yes
 
 	potential = {
 		OR = {
@@ -64,7 +70,7 @@ cal_religous_state_reform = {
 		tolerance_own = 4
 		tolerance_heathen = -3
 		tolerance_heretic = -3
-		governing_capacity = 100
+		governing_capacity = 250
 		brahmins_hindu_loyalty_modifier = 0.1
 		church_loyalty_modifier = 0.1
 		dhimmi_loyalty_modifier = -0.05
@@ -78,76 +84,12 @@ cal_religous_state_reform = {
 			feudal_theocracy_mechanic
 		}
 	}
-	ai = {
-		factor = 0.5 #generic
-	}
-}
-
-
-# Legacy
-
-cal_caliphate_legacy = {
-	icon = "feudal_theocracy"
-	allow_normal_conversion = no
-	legacy_government = yes
-	valid_for_new_country = no
-	allow_convert = no
-	valid_for_nation_designer = no
-
-	monarchy = yes
-	modifiers = {
-		missionaries = 1
-		global_missionary_strength = 0.01
-		tolerance_own = 2
-		governing_capacity = 50
-		brahmins_hindu_loyalty_modifier = 0.05
-		church_loyalty_modifier = 0.05
-		max_absolutism = 10
-	}
-
 	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			feudal_theocracy_mechanic
-		}
+		allow = { has_dlc = "Rights of Man" }
+		has_harem = yes
 	}
 	ai = {
-		factor = 5
-	}
-}
-
-cal_religous_state_legacy = {
-	icon = "feudal_theocracy"
-	allow_normal_conversion = no
-	legacy_government = yes
-	valid_for_new_country = no
-	allow_convert = no
-	valid_for_nation_designer = no
-
-	monarchy = yes
-	modifiers = {
-		missionaries = 2
-		global_missionary_strength = 0.03
-		tolerance_own = 4
-		tolerance_heathen = -3
-		tolerance_heretic = -3
-		governing_capacity = 100
-		brahmins_hindu_loyalty_modifier = 0.1
-		church_loyalty_modifier = 0.1
-		dhimmi_loyalty_modifier = -0.05
-		jains_loyalty_modifier = -0.05
-		rajput_muslim_loyalty_modifier = -0.05
-		max_absolutism = 20
-	}
-
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			feudal_theocracy_mechanic
-		}
-	}
-	ai = {
-		factor = 5
+		factor = 2 #generic
 	}
 }
 
@@ -159,28 +101,22 @@ cal_religous_state_legacy = {
 cal_atheist_republic_reform = {
 	icon = "parliament"
 
-	legacy_equivalent = noble_republic
+	legacy_equivalent = constitutional_republic
 
  	allow_convert = yes
 	allow_normal_conversion = no
 	valid_for_nation_designer = no
 	valid_for_new_country = no
 	lock_level_when_selected = yes
-	locked_government_type = yes
 
 	potential = {
-		OR = {
-			has_reform = cal_atheist_republic_reform
-			have_had_reform = cal_atheist_republic_reform
-			tag = BOL
-		}
+		religion_group = irreligious
 	}
 
 	modifiers = {
 		land_morale = 0.10
 		production_efficiency = 0.1
 		republican_tradition = 0.5
-		tolerance_own = -1
 		tolerance_heathen = 3
 		tolerance_heretic = 3
 
@@ -191,33 +127,26 @@ cal_atheist_republic_reform = {
 	duration = 4
 
 	ai = {
-		factor = 0.5 #generic
+		factor = 2
 	}
 }
 
-cal_atheist_republic_legacy = {
-	icon = "parliament"
-	allow_normal_conversion = no
-	legacy_government = yes
-	duration = 4
-	valid_for_nation_designer = no
-
-	republic = yes
+cal_religious_freedom_reform = {
+	icon = "liberte_reform"
+	allow_normal_conversion = yes
 	potential = {
-		OR = {
-			has_reform = cal_atheist_republic_reform
-			have_had_reform = cal_atheist_republic_reform
-		}
+		has_reform = cal_atheist_republic_reform
+		religion = secularism
 	}
 	modifiers = {
-		land_morale = 0.10
-		production_efficiency = 0.1
-		republican_tradition = 0.5
-		tolerance_heretic = 3
-		tolerance_heathen = 3
-
-		church_influence_modifier = -0.1
-		church_loyalty_modifier = -0.1
+		tolerance_own = -1
+		global_unrest = -1
+		num_accepted_cultures = 2
+		max_absolutism = -10
+		free_adm_policy = 1
+	}
+	ai = {
+		factor = 2.5
 	}
 }
 
@@ -226,12 +155,13 @@ cal_laicite_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_reform = cal_atheist_republic_reform
+		religion = atheism
 	}
 	modifiers = {
-		tolerance_own = -1
-		global_unrest = -1
-		num_accepted_cultures = 2
+		global_missionary_strength = 0.2
+		tolerance_heathen = -2
 		max_absolutism = 10
+		free_mil_policy = 1
 	}
 	ai = {
 		factor = 2.5

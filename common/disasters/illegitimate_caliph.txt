@@ -4,6 +4,7 @@ cal_illegitimate_caliph = {
 		is_caliph = yes
 		num_of_cities = 8
 		NOT = { tag = TUR }
+		NOT = { has_country_flag = cal_illegitimate_caliph_happened }
 	}
 
 
@@ -80,31 +81,43 @@ cal_illegitimate_caliph = {
 
 	
 	can_end = {
-		NOT = { num_of_rebel_controlled_provinces = 1 }
-		NOT = { num_of_rebel_armies = 1 }
-		
 		OR = {
 			AND = {
-				religious_unity = 1
-				stability = 2
-				legitimacy = 80
-				prestige = 50
-			}
-			AND = {
-				stability = 3
-				legitimacy = 90
-				prestige = 50
-			}
-		}
+				NOT = { num_of_rebel_controlled_provinces = 1 }
+				NOT = { num_of_rebel_armies = 1 }
+				
+				OR = {
+					AND = {
+						religious_unity = 1
+						stability = 2
+						legitimacy_equivalent = 80
+						prestige = 50
+					}
+					AND = {
+						stability = 3
+						legitimacy_equivalent = 90
+						prestige = 50
+					}
+				}
 
-		custom_trigger_tooltip = {
-			tooltip = disaster_active_for_10_years_tooltip
-			had_country_flag = { flag = cal_has_illegimitate_caliph days = 3650 }
-		}
+				custom_trigger_tooltip = {
+					tooltip = disaster_active_for_10_years_tooltip
+					had_country_flag = { flag = cal_has_illegimitate_caliph days = 3650 }
+				}
 
-		hidden_trigger = {
-			NOT = { has_country_modifier = just_lost_to_rebels }
-			NOT = { has_country_flag = english_civil_war_start_event }
+				hidden_trigger = {
+					NOT = { has_country_modifier = just_lost_to_rebels }
+					NOT = { has_country_flag = english_civil_war_start_event }
+				}
+			}
+			NOT = {
+				OR ={
+					has_country_modifier = cal_caliphate
+					has_country_modifier = cal_caliphate_sunni
+					has_country_modifier = cal_caliphate_shia
+					has_country_modifier = cal_caliphate_ibadi
+				}
+			}
 		}
 	}
 	
@@ -130,12 +143,14 @@ cal_illegitimate_caliph = {
 		}
 		random_events = {
 			1000 = 0
-			50 = court_and_country_events.2 #
-			50 = court_and_country_events.3 #
-			50 = court_and_country_events.4 #
-			50 = court_and_country_events.5 #
-			50 = court_and_country_events.6 #
-			50 = court_and_country_events.7 #
+			50 = cal_disaster.2  # generic genocide
+			50 = cal_disaster.4  # purge dislayal officials
+			50 = cal_disaster.5  # support in province
+			50 = cal_disaster.6  # bureaucrats disgruntled
+			50 = cal_disaster.7  # desertions
+			50 = cal_disaster.8  # large revolt
+			50 = cal_disaster.9  # seperatist movements
+			50 = cal_disaster.10 # greek independence
 		}
 	}
 }

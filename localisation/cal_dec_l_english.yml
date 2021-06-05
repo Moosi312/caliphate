@@ -1,4 +1,6 @@
 ﻿l_english:
+ cal_take_caliphate_title: "Take the title of Caliph"
+ cal_take_caliphate_desc: "The Muslims need a leading figure, that has not been around since the Abbassid caliphate has been destroyed. To act as a guiding beacon of piety and faith."
  cal_take_caliphate_sunni_title: "Take the title of Caliph"
  cal_take_caliphate_sunni_desc: "The Sunni Muslims need a leading figure, that has not been around since the Abbassid caliphate has been destroyed. To act as a guiding beacon of piety and faith."
  cal_take_caliphate_shia_title: "Take the title of Caliph"
@@ -6,3 +8,7 @@
  cal_take_caliphate_ibadi_title: "Take the title of Caliph"
  cal_take_caliphate_ibadi_desc: "The Ibadi Muslims need a leading figure, that has not been around since the Abbassid caliphate has been destroyed. To act as a guiding beacon of piety and faith."
  cal_caliphate_wars_tt: "Be warned! Taking this decision to take up the title of Caliph, we may anger our neighbors and give them justification to attack us and take the title away for us, which would be a great humiliation for us."
+ cal_atheism_title: "DEBUG: Atheism"
+ cal_atheism_desc: "Debug decision, converts to atheism"
+ cal_secularism_title: "DEBUG: Secularism"
+ cal_secularism_desc: "Debug decision, converts to secularism"

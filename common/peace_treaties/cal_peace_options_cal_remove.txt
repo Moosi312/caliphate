@@ -62,9 +62,9 @@ cal_remove_caliphate = {
 		    duration = 3650
 		}
 		add_prestige = 50
-		every_country = {
-			country_event = { cal_flavor.3 }
-		}
+		# every_country = {
+		# 	country_event = cal_flavor.3
+		# }
 	}
 	ai_weight = { # Defaults to always evaluate to 0
 		export_to_variable = {
