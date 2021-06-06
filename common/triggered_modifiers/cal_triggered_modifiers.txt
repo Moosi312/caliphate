@@ -24,7 +24,7 @@ cal_not_defender = {
 	global_unrest = 2
 	land_morale = -0.1
 
-	picture = "tolerance_heretic"
+	#picture = "tolerance_heretic"
 }
 
 cal_stronger_muslim = {
@@ -45,5 +45,5 @@ cal_stronger_muslim = {
 	diplomatic_reputation = -5
 	reduced_liberty_desire = -25
 
-	picture = "tolerance_heretic"
+	#picture = "tolerance_heretic"
 }

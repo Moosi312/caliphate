@@ -1,0 +1,30 @@
+
+sound = {
+	name = defender_of_the_secularism_faith
+	file = "claim_defender_faith_irreligious.wav"
+}
+
+sound = {
+	name = defender_of_the_atheism_faith
+	file = "claim_defender_faith_irreligious.wav"
+}
+
+sound = {
+	name = start_convert_secularism
+	file = "start_conversion_irreligious.wav"
+}
+
+sound = {
+	name = start_convert_atheism
+	file = "start_conversion_irreligious.wav"
+}
+
+sound = {
+	name = religion_secularism
+	file = "tab_religion_irreligious.wav"
+}
+
+sound = {
+	name = religion_atheism
+	file = "tab_religion_irreligious.wav"
+}

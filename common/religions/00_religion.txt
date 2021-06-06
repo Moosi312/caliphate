@@ -2214,7 +2214,7 @@ irreligious = {
 
 	secularism = {
 		color = { 99 99 99 }
-		icon = 31
+		icon = 30
 		country = {
 			tolerance_heretic = 2
 			global_unrest = -2
@@ -2241,7 +2241,7 @@ irreligious = {
 
 	atheism = {
 		color = { 50 50 50 }
-		icon = 30
+		icon = 31
 		country = {
 			tolerance_own = 2
 			tolerance_heathen = -1

@@ -22,13 +22,13 @@ country_decisions = {
 			is_defender_of_faith = yes
 
 			treasury = 1000
-			prestige = 100
-			legitimacy = 100
+			prestige = 0
+			legitimacy = 90
 
-			religious_unity = 1
+			religious_unity = 0.9
 
 			num_of_owned_provinces_with = {
-				value = 150
+				value = 100
 				religion_group = muslim
 				is_overseas = no
 			}
@@ -38,9 +38,8 @@ country_decisions = {
 			    name = cal_caliphate
 			    duration = -1
 			}
-			add_legitimacy = 50
-			add_prestige = 50
-
+			
+			add_prestige = 100
 			add_treasury = -1000
 
 			custom_tooltip = cal_caliphate_wars_tt

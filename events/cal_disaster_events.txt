@@ -139,12 +139,14 @@ country_event = {#generic genocide
 		}
 		NOT = { has_country_flag = cal_genocide_event_happened }
 		NOT = {
-			tag = TUR
-			any_owned_province = {
-				culture = armenian
-				OR = {
-					unrest = 1
-					nationalism = 1
+			AND = {
+				tag = TUR
+				any_owned_province = {
+					culture = armenian
+					OR = {
+						unrest = 1
+						nationalism = 1
+					}
 				}
 			}
 		}
