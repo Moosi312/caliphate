@@ -2,6 +2,5 @@ government = republic
 add_government_reform = cal_atheist_republic_reform
 government_rank = 3
 primary_culture = turkish
-religion = atheist
 technology_group = ottoman
 capital = 329	# Sivas

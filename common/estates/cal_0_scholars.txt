@@ -1,6 +1,6 @@
 estate_scholars =
 {
-	icon = 5
+	icon = 11
 
 	# If true, country will get estate
 	trigger = {
@@ -88,23 +88,42 @@ estate_scholars =
 	influence_modifier = {
 		desc = EST_UNIVERSITIES
 		trigger = {
-			university = 1
-			NOT = { university = 10 }
+			num_of_owned_provinces_with = {
+				value = 1
+				has_building = fort_15th
+			}
+			NOT = {
+				num_of_owned_provinces_with = {
+					value = 10
+					has_building = fort_15th
+				}
+			}
 		}
 		influence = 5
 	}
 	influence_modifier = {
 		desc = EST_UNIVERSITIES
 		trigger = {
-			university = 10
-			NOT = {university = 25}
+			num_of_owned_provinces_with = {
+				value = 10
+				has_building = fort_15th
+			}
+			NOT = {
+				num_of_owned_provinces_with = {
+					value = 25
+					has_building = fort_15th
+				}
+			}
 		}
 		influence = 10
 	}
 	influence_modifier = {
 		desc = EST_UNIVERSITIES
 		trigger = {
-			university = 25
+			num_of_owned_provinces_with = {
+				value = 25
+				has_building = fort_15th
+			}
 		}
 		influence = 20
 	}
@@ -176,24 +195,27 @@ estate_scholars =
 		estate_scholars_scholarly_oversight
 		estate_scholars_inwards_perfection
 		estate_scholars_enforced_no_faith
-		estate_church_monopoly_of_incense
-		estate_church_monopoly_of_wool
-		estate_church_monopoly_of_wine
-		estate_church_monopoly_of_slaves
+		estate_scholars_for_the_faith 
+		estate_scholars_monopoly_of_incense
+		estate_scholars_monopoly_of_wool
+		estate_scholars_monopoly_of_wine
+		estate_scholars_monopoly_of_slaves
 	}
 
 	agendas = {
-		estate_church_develop_x
-		estate_church_build_university_in_y
-		estate_church_build_manufactory_in_y
-		estate_church_reduce_war_exhaustion
-		estate_church_recover_stability
-		estate_church_increase_stability
-		estate_church_reduce_overextension
-		estate_church_protect_brethren
-		estate_church_relations_with_dotf
-		estate_church_hire_advisor
-		estate_church_fire_advisor
+		estate_scholars_develop_x
+		estate_scholars_build_university_in_y
+		estate_scholars_build_manufactory_in_y
+		estate_scholars_reduce_war_exhaustion
+		estate_scholars_restore_devotion
+		estate_scholars_recover_stability
+		estate_scholars_increase_stability
+		estate_scholars_reduce_overextension
+		estate_scholars_protect_brethren
+		estate_scholars_relations_with_dotf
+		estate_scholars_hire_advisor
+		estate_scholars_fire_advisor
+		estate_scholars_convert_province_x
 	}
 	influence_from_dev_modifier = 1.0
 }

@@ -663,13 +663,13 @@ pre_dharma_mapping = {
 		government = monarchy
 		legacy_government = elective_monarchy_legacy
 	}
-	imperial_city = {
+	free_city = {
 		government = republic
 		legacy_government = imperial_city
 	}
 	trading_city = {
 		government = republic
-		legacy_government = imperial_city_legacy
+		legacy_government = imperial_city
 	}
 	ambrosian_republic = {
 		government = republic

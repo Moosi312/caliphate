@@ -161,3 +161,19 @@ cal_concessions_to_soldiers = {
 	land_maintenance_modifier = 0.5
 	global_unrest = -1
 }
+
+estate_scholars_monopoly_of_incense_mod = {
+	local_production_efficiency = -10
+}
+
+estate_scholars_monopoly_of_wool_mod = {
+	local_production_efficiency = -10
+}
+
+estate_scholars_monopoly_of_wine_mod = {
+	local_production_efficiency = -10
+}
+
+estate_scholars_monopoly_of_slaves_mod = {
+	local_production_efficiency = -10
+}

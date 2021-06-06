@@ -152,7 +152,7 @@ country_event = {#feminism
 	id = cal_flavor.6
 	title = cal_flavor.6.t
 	desc = cal_flavor.6.d
-	picture = HAJJ_eventPicture
+	picture = WITCHTRIAL_eventPicture
 
 	trigger = {
 		has_reform = cal_atheist_republic_reform
@@ -216,7 +216,7 @@ country_event = {#genocide repercussions
 	id = cal_flavor.7
 	title = cal_flavor.7.t
 	desc = cal_flavor.7.d
-	picture = HAJJ_eventPicture
+	picture = REVOLT_HUGUENOTS_eventPicture
 
 	is_triggered_only = yes
 
@@ -267,7 +267,7 @@ country_event = {#genocide forgotten
 	id = cal_flavor.8
 	title = cal_flavor.8.t
 	desc = cal_flavor.8.d
-	picture = HAJJ_eventPicture
+	picture = DIPLOMACY_eventPicture
 
 	is_triggered_only = yes
 
@@ -283,7 +283,7 @@ country_event = {#genocide repercussions, armenians
 	id = cal_flavor.9
 	title = cal_flavor.9.t
 	desc = cal_flavor.9.d
-	picture = HAJJ_eventPicture
+	picture = REVOLT_HUGUENOTS_eventPicture
 
 	is_triggered_only = yes
 

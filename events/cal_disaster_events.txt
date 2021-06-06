@@ -8,7 +8,7 @@ country_event = {#start of the disaster
 	id = cal_disaster.1
 	title = cal_disaster.1.t
 	desc = cal_disaster.1.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = REVOLUTION_eventPicture
 
 	is_triggered_only = yes
 
@@ -125,7 +125,7 @@ country_event = {#generic genocide
 	id = cal_disaster.2
 	title = cal_disaster.2.t
 	desc = cal_disaster.2.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = COUNTRY_COLLAPSE_eventPicture
 
 	is_triggered_only = yes
 
@@ -312,7 +312,7 @@ country_event = {#armenian genocide
 	id = cal_disaster.3
 	title = cal_disaster.3.t
 	desc = cal_disaster.3.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = COUNTRY_COLLAPSE_eventPicture
 
 	is_triggered_only = yes
 
@@ -490,7 +490,7 @@ country_event = {#purge dislayal officials
 	id = cal_disaster.4
 	title = cal_disaster.4.t
 	desc = cal_disaster.4.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = ACCUSATION_eventPicture
 
 	is_triggered_only = yes
 
@@ -518,7 +518,7 @@ country_event = {#support in province
 	id = cal_disaster.5
 	title = cal_disaster.5.t
 	desc = cal_disaster.5.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = STREET_SPEECH_eventPicture
 
 	is_triggered_only = yes
 
@@ -561,7 +561,7 @@ country_event = {#bureaucrats disgruntled
 	id = cal_disaster.6
 	title = cal_disaster.6.t
 	desc = cal_disaster.6.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = ACCUSATION_eventPicture
 
 	is_triggered_only = yes
 
@@ -589,7 +589,7 @@ country_event = {#desertions
 	id = cal_disaster.7
 	title = cal_disaster.7.t
 	desc = cal_disaster.7.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = LAND_MILITARY_eventPicture
 
 	trigger = { #otherwise option A is too easy
 		manpower_percentage = 0.1
@@ -623,7 +623,7 @@ country_event = {#large revolt
 	id = cal_disaster.8
 	title = cal_disaster.8.t
 	desc = cal_disaster.8.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = CIVIL_WAR_eventPicture
 
 	trigger = {
 		any_owned_province = {
@@ -667,7 +667,7 @@ country_event = {#seperatist movements
 	id = cal_disaster.9
 	title = cal_disaster.9.t
 	desc = cal_disaster.9.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = ANGRY_MOB_eventPicture
 
 	trigger = {
 		any_owned_province = {
@@ -715,7 +715,7 @@ country_event = {#greek independence
 	id = cal_disaster.10
 	title = cal_disaster.10.t
 	desc = cal_disaster.10.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = ATHENS_eventPicture
 
 	trigger = {
 		capital_scope = {
@@ -870,7 +870,7 @@ country_event = { #order restored
 	id = cal_disaster.100
 	title = cal_disaster.100.t
 	desc = cal_disaster.100.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = GOOD_WITH_MONARCH_eventPicture
 
 	is_triggered_only = yes
 
@@ -1038,7 +1038,7 @@ country_event = { #choose irreligious religion
 	id = cal_disaster.101
 	title = cal_disaster.101.t
 	desc = cal_disaster.101.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = WESTERNISATION_eventPicture
 
 	is_triggered_only = yes
 
@@ -1098,7 +1098,7 @@ country_event = {#start of the disaster TUR
 	id = cal_disaster.201
 	title = cal_disaster.201.t
 	desc = cal_disaster.201.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = REVOLUTION_eventPicture
 
 	is_triggered_only = yes
 
@@ -1230,7 +1230,7 @@ country_event = { #order restored TUR
 	id = cal_disaster.202
 	title = cal_disaster.202.t
 	desc = cal_disaster.202.d
-	picture = RELIGIOUS_TURMOIL_eventPicture
+	picture = GOOD_WITH_MONARCH_eventPicture
 
 	is_triggered_only = yes
 
