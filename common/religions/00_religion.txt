@@ -2219,7 +2219,7 @@ irreligious = {
 			tolerance_heretic = 2
 			global_unrest = -2
 			technology_cost = -0.1
-			global_missionary_strength = -10
+			global_missionary_strength = -1
 		}
 		province = {
 			local_missionary_strength = -0.05

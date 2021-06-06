@@ -115,15 +115,28 @@ cal_disaster_abandon = {
 }
 
 cal_islamic_state = {
-
+	discipline = 0.05
+	siege_ability = 0.1
+	warscore_cost_vs_other_religion = -0.25
+	tolerance_heathen = -2
+	tolerance_own = 1
+	global_heathen_missionary_strength = 0.1
 }
 
 cal_moderate_caliphate = {
-
+	production_efficiency = 0.1
+	global_tax_modifier = 0.1
+	infantry_power = 0.2
+	tolerance_own = 1
+	tolerance_heretic = -2
+	global_heretic_missionary_strength = 0.02
 }
 
 cal_protector_caliphate = {
-
+	defensiveness = 0.3
+	tolerance_heretic = 1
+	tolerance_heathen = 1
+	land_morale = 0.1
 }
 
 cal_feminism = {
@@ -146,15 +159,19 @@ cal_patriarchy = {
 cal_genocide_province = {
 	local_culture_conversion_cost = -0.5
 	local_missionary_strength = 0.02
-	global_unrest = 2
+	local_unrest = 2
 }
 
 cal_genocide_accepted = {
-
+	stability_cost_modifier = 0.2
+	global_unrest = 1
+	diplomatic_reputation = 1
 }
 
 cal_genocide_denied = {
-	
+	diplomatic_reputation = -3
+	ae_impact = 0.1
+	trade_efficiency = -0.1
 }
 
 cal_concessions_to_soldiers = {

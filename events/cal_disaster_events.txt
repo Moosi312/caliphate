@@ -956,7 +956,12 @@ country_event = { #order restored
 			add_stability = 2
 		}
 		else = { add_legitimacy = 20 }
-		override_country_name = THE_CALIPHATE
+		if = {
+			limit = {
+				has_country_flag = unified_islam
+			}
+			override_country_name = THE_CALIPHATE
+		}
 	}
 
 	option = { #atheists lost
@@ -975,7 +980,12 @@ country_event = { #order restored
 			limit = { NOT = { government = monarchy }}
 			change_government_to_monarchy = yes
 		}
-		override_country_name = THE_CALIPHATE
+		if = {
+			limit = {
+				has_country_flag = unified_islam
+			}
+			override_country_name = THE_CALIPHATE
+		}
 	}
 
 	option = { #caliphate lost
@@ -1066,6 +1076,39 @@ country_event = { #choose irreligious religion
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 		}
+
+		if = {
+			limit = {
+				tag = MAM
+			}
+			change_tag = EGY
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+
+		if = {
+			limit = {
+				tag = TIM
+			}
+			change_tag = PER
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+
+		# if = {
+		# 	limit = {
+		# 		tag = MUG
+		# 	}
+		# 	change_tag = HIN
+		# 	if = {
+		# 		limit = { has_custom_ideas = no }
+		# 		country_event = { id = ideagroups.1 } #Swap Ideas
+		# 	}
+		# }
 	}
 
 	option = { #atheism
@@ -1086,6 +1129,39 @@ country_event = { #choose irreligious religion
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 		}
+
+		if = {
+			limit = {
+				tag = MAM
+			}
+			change_tag = EGY
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+
+		if = {
+			limit = {
+				tag = TIM
+			}
+			change_tag = PER
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+
+		# if = {
+		# 	limit = {
+		# 		tag = MUG
+		# 	}
+		# 	change_tag = HIN
+		# 	if = {
+		# 		limit = { has_custom_ideas = no }
+		# 		country_event = { id = ideagroups.1 } #Swap Ideas
+		# 	}
+		# }
 	}
 
 	option = { #muslim republic
@@ -1317,7 +1393,12 @@ country_event = { #order restored TUR
 			add_stability = 2
 		}
 		else = { add_legitimacy = 20 }
-		override_country_name = THE_CALIPHATE
+		if = {
+			limit = {
+				has_country_flag = unified_islam
+			}
+			override_country_name = THE_CALIPHATE
+		}
 	}
 
 	option = { #atheists lost
@@ -1336,7 +1417,12 @@ country_event = { #order restored TUR
 			limit = { NOT = { government = monarchy }}
 			change_government_to_monarchy = yes
 		}
-		override_country_name = THE_CALIPHATE
+		if = {
+			limit = {
+				has_country_flag = unified_islam
+			}
+			override_country_name = THE_CALIPHATE
+		}
 	}
 
 	option = { #caliphate lost

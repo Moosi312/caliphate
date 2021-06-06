@@ -328,3 +328,287 @@ country_event = {#genocide repercussions, armenians
 		add_mil_power = -100
 	}
 }
+
+country_event = {#convert to atheism
+	id = cal_flavor.10
+	title = cal_flavor.10.t
+	desc = cal_flavor.10.d
+	picture = REVOLT_HUGUENOTS_eventPicture
+
+	trigger = {
+		always = no
+		religion_group = irreligious
+		NOT = {
+			had_country_flag = {
+				flag = cal_province_converted_to_atheism
+				days = 180
+			}
+		}
+		any_owned_province = {
+			is_core = ROOT
+			NOT = { unrest = 1 }
+			NOT = { religion_group = irreligious }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	
+		modifier = {
+			factor = 0.8
+			stability = 1
+		}
+		
+		modifier = {
+			factor = 0.8
+			stability = 3
+		}
+		
+		modifier = {
+			factor = 0.8
+			stability = 1
+		}
+	}
+
+	option = {
+		name = cal_flavor.10.a
+		clr_country_flag = cal_province_converted_to_atheism
+		set_country_flag = cal_province_converted_to_atheism
+		random_owned_province = {
+			limit = {
+				is_core = ROOT
+				NOT = { unrest = 1 }
+				NOT = { religion_group = irreligious }
+			}
+			change_religion = atheism
+			if = {
+				limit = {
+					any_neighbor_province = {
+						is_core = ROOT
+						NOT = { unrest = 1 }
+						NOT = { religion_group = irreligious }
+					}
+				}
+				random = {
+					chance = 50
+	
+					random_neighbor_province = {
+						limit = {
+							is_core = ROOT
+							NOT = { unrest = 1 }
+							NOT = { religion_group = irreligious }
+						}
+						change_religion = atheism
+						
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_neighbor_province = {
+						is_core = ROOT
+						NOT = { unrest = 1 }
+						NOT = { religion_group = irreligious }
+					}
+				}
+				random = {
+					chance = 50
+	
+					random_neighbor_province = {
+						limit = {
+							is_core = ROOT
+							NOT = { unrest = 1 }
+							NOT = { religion_group = irreligious }
+						}
+						change_religion = atheism
+						
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				religion = atheism
+			}
+			add_fervor = 5
+		}
+		if = {
+			limit = {
+				religion = secularism
+			}
+			add_harmony = 2
+		}
+	}
+}
+
+province_event = {
+	id = cal_flavor.11
+	title = cal_flavor.11.t
+	desc = cal_flavor.11.d
+	picture = REVOLT_HUGUENOTS_eventPicture
+
+	trigger = {
+		owner = {
+			religion_group = irreligious
+			NOT = {
+				had_country_flag = {
+					flag = cal_province_converted_to_atheism
+					days = 180
+				}
+			}
+		}
+		is_core = owner
+		NOT = { unrest = 1 }
+		NOT = { religion_group = irreligious }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	
+		modifier = {
+			factor = 0.8
+			owner = {
+				stability = 1
+			}
+		}
+		
+		modifier = {
+			factor = 0.8
+			owner = {
+				stability = 3
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			nationalism = 1
+		}
+
+		modifier = {
+			factor = 0.8
+			has_owner_accepted_culture = yes
+		}
+
+		modifier = {
+			factor = 0.5
+			culture = owner
+		}
+
+		modifier = {
+			factor = 0.7
+			owner = {
+				num_of_owned_provinces_with = {
+					value = 50
+					NOT = { religion_group = irreligious }
+				}
+			}
+		}
+
+		modifier = {
+			factor = 0.7
+			owner = {
+				num_of_owned_provinces_with = {
+					value = 100
+					NOT = { religion_group = irreligious }
+				}
+			}
+		}
+
+		modifier = {
+			factor = 0.5
+			owner = {
+				num_of_owned_provinces_with = {
+					value = 250
+					NOT = { religion_group = irreligious }
+				}
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			development = 15
+		}
+
+		modifier = {
+			factor = 0.8
+			development = 30
+		}
+
+		modifier = {
+			factor = 0.5
+			development = 100
+		}
+	}
+
+	option = {
+		name = cal_flavor.11.a
+		owner = {
+			clr_country_flag = cal_province_converted_to_atheism
+			set_country_flag = cal_province_converted_to_atheism
+		}
+		
+		change_religion = atheism
+		if = {
+			limit = {
+				any_neighbor_province = {
+					is_core = owner
+					NOT = { unrest = 1 }
+					NOT = { religion_group = irreligious }
+				}
+			}
+			random = {
+				chance = 50
+	
+				random_neighbor_province = {
+					limit = {
+						is_core = owner
+						NOT = { unrest = 1 }
+						NOT = { religion_group = irreligious }
+					}
+					change_religion = atheism
+					if = {
+						limit = {
+							any_neighbor_province = {
+								is_core = owner
+								NOT = { unrest = 1 }
+								NOT = { religion_group = irreligious }
+							}
+						}
+						random = {
+							chance = 50
+				
+							random_neighbor_province = {
+								limit = {
+									is_core = owner
+									NOT = { unrest = 1 }
+									NOT = { religion_group = irreligious }
+								}
+								change_religion = atheism
+							}
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					religion = atheism
+				}
+			}
+			owner = {
+				add_fervor = 5
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					religion = secularism
+				}
+			}
+			owner = {
+				add_harmony = 2
+			}
+		}
+	}
+}
