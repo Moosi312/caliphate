@@ -68,7 +68,7 @@ ISS_ideas = {
 	}
 	iss_harem = {
 		heir_chance = 1
-		female_advisor_chance = 0.1
+		monthly_heir_claim_increase = 0.05
 	}
 	iss_one_faith_one_people = {
 		culture_conversion_cost = -0.25

@@ -767,6 +767,7 @@ country_event = {#greek independence
 						area = morea_area
 						area = northern_greece_area
 						area = thrace_area
+						area = aegean_archipelago_area
 					}
 				}
 				add_core = GRE
@@ -783,8 +784,8 @@ country_event = {#greek independence
 
 	option = {#make greece a march
 		name = cal_disaster.10.a
-		add_years_of_income = 0.5
-		add_adm_power = 100
+		add_prestige = -50
+		add_dip_power = -100
 
 		every_owned_province = {
 			limit = {
@@ -798,6 +799,7 @@ country_event = {#greek independence
 			}
 			cede_province = GRE
 			add_core = GRE
+			remove_core = ROOT
 			if = {
 				limit = {
 					NOT = { culture_group = byzantine }
@@ -809,7 +811,6 @@ country_event = {#greek independence
 		hidden_effect = {
 			GRE = {
 				change_primary_culture = greek
-				change_religion = orthodox
 				if = {
 					limit = {
 						146 = {
@@ -819,8 +820,8 @@ country_event = {#greek independence
 					set_capital = 146
 				}
 				capital_scope = {
-					change_religion = orthodox
-					change_culture = greek
+					change_religion = GRE
+					change_culture = GRE
 				}
 			}
 		}
@@ -956,6 +957,7 @@ country_event = { #order restored
 			add_stability = 2
 		}
 		else = { add_legitimacy = 20 }
+
 		if = {
 			limit = {
 				has_country_flag = unified_islam
