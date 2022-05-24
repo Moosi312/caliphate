@@ -38,7 +38,7 @@ country_decisions = {
 			    name = cal_caliphate
 			    duration = -1
 			}
-			
+
 			add_prestige = 100
 			add_treasury = -1000
 
@@ -196,6 +196,7 @@ country_decisions = {
 			    name = cal_caliphate_ibadi
 			    duration = -1
 			}
+
 			add_legitimacy = 50
 			add_prestige = 50
 

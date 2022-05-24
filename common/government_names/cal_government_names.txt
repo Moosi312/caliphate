@@ -1,0 +1,27 @@
+
+islamic_caliphate = {
+	rank = {
+		3 = ISLAMIC_CALIPHATE
+		2 = ISLAMIC_CALIPHATE
+		1 = ISLAMIC_CALIPHATE
+	}
+
+	ruler_male = {
+		3 = CALIPH
+		2 = CALIPH
+		1 = CALIPH
+	}
+
+	ruler_female = {
+		3 = CALIPHA
+		2 = CALIPHA
+		1 = CALIPHA
+	}
+
+	trigger = {
+		is_caliph = yes
+		NOT = {
+			has_country_modifier = cal_caliphate_transcended
+		}
+	}
+}

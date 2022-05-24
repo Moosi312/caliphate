@@ -74,6 +74,7 @@ cal_legitimize_minor = {
 		FROM = {
 			religion = ROOT
 			is_subject = no
+			is_great_power = no
 			OR = {
 				had_country_flag = {
 					flag = cal_legitimzed_ruler
@@ -82,7 +83,7 @@ cal_legitimize_minor = {
 				NOT = { has_country_flag = cal_legitimzed_ruler }
 			}
 		}
-		years_of_income = FROM
+		years_of_income = 1
 		prestige = 5
 		legitimacy = 5
 	}
@@ -92,14 +93,14 @@ cal_legitimize_minor = {
 			value = 20
 			mutual = yes
 		}
-		add_legitimacy = -5
-		add_prestige = -5
+		# add favors
+		add_prestige = 5
 		add_years_of_income = -1
 		FROM = {
 			add_legitimacy = 5
 			add_prestige = 5
-			add_years_of_income = 1
-			reverse_add_opinion = {
+			add_years_of_income = ROOT
+			add_opinion = {
 			    who = ROOT
 			    modifier = cal_caliph_legitimized
 			}
@@ -107,7 +108,7 @@ cal_legitimize_minor = {
 		}
 	}
 
-	ai_will_do = { # this is a trigger
+	ai_will_do = { # TODO
 		always = no
 	}
 }
@@ -139,9 +140,12 @@ cal_demand_religious_conversion_heretic = {
 			religion_group = muslim
 			NOT = { religion = ROOT }
 			is_subject = no
+			is_great_power = no
 		}
 	}
 	on_accept = {
+		prestige = 10
+		legitimacy = 10
 		FROM = { change_religion = ROOT }
 		add_opinion = {
 		    who = ROOT
@@ -155,10 +159,15 @@ cal_demand_religious_conversion_heretic = {
 			value = -10
 			mutual = no
 		}
+		prestige = -10
+		FROM = {
+			prestige = 10
+		}
+		# add wargoal?
 	}
 
 	#TODO
-	ai_acceptance = { # This works similarly to variable_arithmetic_trigger, but does not support triggers generally. Instead, "limit" will be evaluated first and the rest ignored if it isn't passed.
+	ai_acceptance = { # TODO
 		add_entry = {
 			name = TRUST
 			export_to_variable = {
